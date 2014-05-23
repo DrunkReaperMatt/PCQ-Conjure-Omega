@@ -41,6 +41,7 @@ public class Minion : MonoBehaviour {
 	public int startingHealth = 100; // maxHealth
 	public int startingArmor = 0; //Damage reduction, get higher to add challenge 
 	public int rotationSpeed = 3;
+	public int attackDamage = 10;
 	public float movementSpeed = 30;
 	public float minAttackDistance = 3.0f;
 
@@ -195,7 +196,7 @@ public class Minion : MonoBehaviour {
 	public void BeginAttackingAnimation( ){
 		// anim 
 		Debug.Log ("CAN ATTACK!");
-		
+
 		currentAnimationState = MinionAnimationState.Attacking;
 
 		StartCoroutine (EndAttackingAnimation());
@@ -204,9 +205,16 @@ public class Minion : MonoBehaviour {
 		
 }
 	public  IEnumerator EndAttackingAnimation( ){
-			yield return new WaitForSeconds (ANIM_ATTACK_TIME);
-			currentAnimationState = MinionAnimationState.None;
-			Debug.Log ("Attack completed!");
+		yield return new WaitForSeconds (ANIM_ATTACK_TIME);
+		currentAnimationState = MinionAnimationState.None;
+	
+		// if Attack collided (player didnt dodge)
+				
+		GameObject player = GameObject.FindWithTag ("Player");
+
+		player.SendMessage("ApplyDamage", new DamageCounter(null, attackDamage));	
+		 
+			Debug.Log ("Attack completed! ");
 		}
 
 	public void BeginGettngHitAnimation( ){

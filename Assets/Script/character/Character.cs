@@ -181,10 +181,11 @@ public class Character : MonoBehaviour
 
     public void ApplyDamage(DamageCounter dc)
     {
+		Debug.Log("Received : " + dc.Damage);
         if (canBeHit)
         {
             vitals.ReceiveDamage(dc.Damage);
-            Debug.Log("Received : " + dc.Damage + " <> Remaining : " + vitals.Vitality);
+            
             stillHasHealt();
         }
         else { Debug.Log("Invulnerable"); }
