@@ -4,6 +4,8 @@
 TagManager:
   tags:
   - Inactive
+  - minion
+  - Background
   - 
   - Background
   - Trigger

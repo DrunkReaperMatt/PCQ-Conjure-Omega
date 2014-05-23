@@ -21,7 +21,7 @@ public enum MinionState {
 	Spawning,
 	Idling,
 	Walking,
-	Retreating,
+	Retreating, 
 	Dead
 }
 
@@ -29,7 +29,7 @@ public enum MinionAnimationState {
 	Idling,
 	Walking,
 	Attacking,
-	GettingHit,
+	GettingHit, 
 	Dying
 }
 
@@ -37,7 +37,7 @@ public enum MinionAnimationState {
 
 public class Minion : MonoBehaviour {
 
-	public int startingHealth = 100;
+	public int startingHealth = 100; // maxHealth
 	public int startingArmor = 0; //Damage reduction, get higher to add challenge 
 
 	//private delegate SetDeadState;
@@ -46,13 +46,14 @@ public class Minion : MonoBehaviour {
 	private Movement movement;   //memes mouvement que le player (cardinaux), pas de rage.
 	private MinionState currentState;  			//movement
 	private MinionAnimationState currentAnimationState; // animation
- 
-	private const int MIN_HEALTH_TO_RETREAT_UNDER_RAGE_STATE = 35;
+ 	
+	private const int MIN_HEALTH_TO_RETREAT_UNDER_RAGE_STATE = 35; //percentage
 	private const int MIN_HEALTH_TO_RETREAT = 15;
 
 	// Use this for initialization
 	void Start () {
 		currentState = MinionState.Spawning;
+		currentAnimationState = MinionAnimationState.Idling;
 	}
 	
 	// Update is called once per frame
@@ -66,8 +67,8 @@ public class Minion : MonoBehaviour {
 
 
 	public void ReceiveDamage(int dmg) {
-		if (currentState != MinionState.Dead || currentAnimationState != MinionAnimationState.Dying) {
-			currentHealth -= dmg;
+ 		if ( currentState != MinionState.Dead ) {
+ 			currentHealth -= dmg;
 			//Killing blow? set dying stage. 
 			if (IsDead()){
 				SetDyingState();
@@ -95,15 +96,15 @@ public class Minion : MonoBehaviour {
 	}
 
 	public bool shouldRetreat() {
-		bool bRetreat = false;
+		bool bshouldRetreat = false;
 		if ( (GetCurrentHealth() / startingHealth) * 100  < MIN_HEALTH_TO_RETREAT){	
-			bRetreat = true;
+			bshouldRetreat = true;
 		}
 		//if ((GetCurrentHeat() / MaxHealth) * 100 < MIN_HEALTH_TO_RETREAT_UNDER_RAGE_STATE && PlayerInRageState()){	
 		//	bRetreat = true;
 		//}
 
-		return bRetreat;
+		return bshouldRetreat;
 	}
 
 	//Move up = simulation profondeur Z
@@ -112,45 +113,40 @@ public class Minion : MonoBehaviour {
 
 	//// ANIMATIONS 
 	/// public ou private? 
-	/*
-	public void BeginWalkingAnimation( EventDelegate funcWhenDone){
+ 
+
+	public void BeginWalkingAnimation(  ){
 		// anim 
 
-		funcWhenDone();
-	}
+}
 
-	public void BeginIdlingAnimation(EventDelegate funcWhenDone){
+	public void BeginIdlingAnimation( ){
 		// anim 
-		
-		funcWhenDone();
-	}
+}
 
-	public void BeginAttackingAnimation(EventDelegate funcWhenDone){
+	public void BeginAttackingAnimation( ){
 		// anim 
 		
-		funcWhenDone();
-	}
+}
 
-	public void BeginGettngHitAnimation(EventDelegate funcWhenDone){
+	public void BeginGettngHitAnimation( ){
 		// anim 
 		
-		funcWhenDone ();
+	 
 	}
 
 
 	//funcWhenDone - BeginDecayingBodyAnimation
-	public void BeginDyingAnimation(EventDelegate funcWhenDone){
+	public void BeginDyingAnimation( ){
 		// anim 
 		
-		funcWhenDone ();
+		 
 	}
 
 	/// POLISH   -- flashy body, before removing from scene.
-	public void BeginDecayingBodyAnimation(EventDelegate funcWhenDone){
+	public void BeginDecayingBodyAnimation( ){
 		// anim 
-		
-		funcWhenDone();
-	}
+}
 
-*/
+
 }
