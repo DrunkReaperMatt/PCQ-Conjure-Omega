@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class VitalStats : MonoBehaviour {
 
@@ -17,7 +18,7 @@ public class VitalStats : MonoBehaviour {
         ResetStats();
 	}
 
-    private void ResetStats()
+    public void ResetStats()
     {
         rage = 0;
         vitality = vitalityMax;
@@ -31,19 +32,19 @@ public class VitalStats : MonoBehaviour {
         get { return vitality; }
     }
 
-    private bool ReceiveDamage(int damage)
+    public bool ReceiveDamage(int damage)
     {
         if (damage < 1) damage = 1; // Do not call ReceiveDamage if you dont actually want some blood to be shed
         return ((vitality -= (damage - armor > 1 ? damage - armor : 1 )) > 0 ? true : false );
     }
 
-    private void GainHealt(int healt)
+    public void GainHealt(int healt)
     {
         if (vitality < 1) vitality = 1;
-        vitality = (vilality + healt < vitalityMax ? vilality + healt : vitalityMax);
+        vitality = (vitality + healt < vitalityMax ? vitality + healt : vitalityMax);
     }
 
-    private bool hasHealt()
+    public bool HasHealt()
     {
         return (vitality > 1 ? true : false);
     }
@@ -52,18 +53,18 @@ public class VitalStats : MonoBehaviour {
 
     #region RAGE
 
-    private int Rage
+    public int Rage
     {
         get { return rage; }
     }
 
-    private bool SpendRage(int spentRage)
+    public bool SpendRage(int spentRage)
     {
         if (spentRage < 1) spentRage = 1; // Do not call SpendRage if you dont actually want to
         return ((rage -= spentRage) > 0 ? true : false);
     }
 
-    private void GainRage(int gainedRage)
+    public void GainRage(int gainedRage)
     {
         if(gainedRage > 0) rage = (rage + gainedRage < rageMax ? rage + gainedRage : rageMax);
     }
@@ -83,10 +84,10 @@ public class VitalStats : MonoBehaviour {
         armor = (armor + gainedArmor < armorMax ? armor + gainedArmor : armorMax);
     }
 
-    public void gainArmor(int gainedArmor)
+    public void breakArmor(int reducedArmor)
     {
-        if (gainedArmor < 1) gainedArmor = 1;
-        armor = (armor + gainedArmor < armorMax ? armor + gainedArmor : armorMax);
+        if (reducedArmor < 1) reducedArmor = 1;
+        armor = (armor - reducedArmor > 0 ? armor - reducedArmor : 0);
     }
 
     #endregion

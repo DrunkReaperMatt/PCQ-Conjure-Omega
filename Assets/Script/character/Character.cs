@@ -2,120 +2,84 @@
 using System.Collections;
 using System;
 
-public enum CharacterType
-{
-    Blot,
-    Blob
-}
-
 public class Character : MonoBehaviour
 {
     public enum CharacterState
     {
         Idle,
         Walk,
-        Run,
-        Jump,
-        Crouch,
         Death,
-        Spawn
+        Attack1,
+        Attack2,
+        Attack3,
+        GettingHit,
+        Spawn,
+        Invulnerable
     }
 
-    public int debugView_CharacterState { get { return (int)State; } }
-    public CharacterType characterType;
+    //public int debugView_CharacterState { get { return (int)State; } }
+
     public float spawnTime = 3;
     private CharacterState state;
 
-    public AudioSource audioJump;
-    public AudioSource audioLanding;
-    public AudioSource audioDiePick;
-
     private Movement movement;
-    private Rigidbody2D rigidBody;
+    private VitalStats vitals;
 
-    private WayPoint lastWayPoint;
     private float timer = 0;
 
     void Start()
     {
         movement = GetComponent<Movement>();
-        rigidBody = GetComponent<Rigidbody2D>();
-        
-        //State = CharacterState.Spawn;
+        vitals = GetComponent<VitalStats>();
+
+        state = CharacterState.Spawn;
     }
-    
+
     void Update()
     {
         if (State == CharacterState.Death || State == CharacterState.Spawn) return; //
 
-        if (movement.IsGrounded)
-        {
-            float velocityX = rigidBody.velocity.x;
-            if(velocityX > 0.05)
-            {
-                if(movement.IsRunning) { State = CharacterState.Run; }
-                else { State = CharacterState.Walk; }
-            }
-            else
-            {
-                State = CharacterState.Idle;
-            }
-        }
-        else
-        {
-            float velocityY = rigidBody.velocity.y;
-            
-            if(Math.Abs(velocityY) > 0.05)
-            {
-                State = CharacterState.Jump;
-            }
-        }
+
+
     }
-    
+
     public CharacterState State
     {
         get { return state; }
-        set { 
+        set
+        {
             if (value != this.state)
             {
                 state = value;
-                UpdateAnimation(this.state);
-            } 
+            }
         }
-    }
-
-    private void UpdateAnimation(CharacterState stateUpdate)
-    {
-
     }
 
     public void Idle()
     {
-
+        animation.Play("Idle");
     }
 
-    public void Walk()
+    public void Move()
     {
-
+        animation.Play("Move");
     }
-
-    public void Run()
+    public void Attack1()
     {
-
+        animation.Play("Attack1");
     }
-
-    public void InAir()
+    public void Attack2()
     {
-
+        animation.Play("Attack2");
     }
-
-    public void Crouch()
+    public void Attack3()
     {
-
+        animation.Play("Attack3");
     }
-
     public void Death()
     {
+        animation.Play("Death");
+        /*
         if (timer != 0)
         {
             if (timer == Time.time)
@@ -128,24 +92,40 @@ public class Character : MonoBehaviour
         {
             timer = Time.time;
         }
-        
+        */
     }
 
     public void Spawn()
     {
-
+        animation.Play("Spawn");
     }
-    /*
-    void OnTriggerEnter2D(Collider2D other)
+
+    public void ReceiveDamage(GameObject dealer, int damage)
     {
-        if (other.transform.GetComponent<WayPoint>() != null)
+
+        if (State == CharacterState.Death || State == CharacterState.Spawn)
         {
-            lastWayPoint = other.transform.GetComponent<WayPoint>();
+
+        }
+        else if (state == CharacterState.Invulnerable)
+        {
+
+        }
+        else
+        {
+            vitals.ReceiveDamage(damage);
+
+            CheckVitals();
         }
     }
-    */
-    public void OnBecameInvisible()
+
+    public void CheckVitals() 
     {
-        enabled = false;
+        if (!vitals.HasHealt())
+        {
+
+            State = CharacterState.Death;
+        }
     }
+
 }
