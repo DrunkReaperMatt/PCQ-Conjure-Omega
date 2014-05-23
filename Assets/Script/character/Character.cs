@@ -118,7 +118,7 @@ public class Character : MonoBehaviour
 
     public void IsHit()
     {
-        animation.Play();
+        //animation.Play();
     }
 
     public void Death()
