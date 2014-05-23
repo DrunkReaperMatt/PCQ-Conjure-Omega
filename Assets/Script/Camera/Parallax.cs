@@ -15,11 +15,13 @@ public class Parallax : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (follow){
-			transform.position = new Vector2((Camera.main.transform.position.x - x) / offset,
-			Camera.main.transform.position.y);
+			transform.position = new Vector3((Camera.main.transform.position.x - x) / offset,
+			transform.position.y,
+			transform.position.z);
 		}else{
-			transform.position = new Vector2((x - Camera.main.transform.position.x) / offset,
-			Camera.main.transform.position.y);
+			transform.position = new Vector3((x - Camera.main.transform.position.x) / offset,
+			transform.position.y,
+			transform.position.z);
 		}
 
 	}
