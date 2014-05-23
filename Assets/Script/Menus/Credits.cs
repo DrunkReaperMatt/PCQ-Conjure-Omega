@@ -26,21 +26,16 @@ public class Credits : MonoBehaviour {
 
 	IEnumerator ShowCredits(){
 		Debug.Log ("ShowCredits()");
+		int i = 0;
+		while (true) {
+		
+				gc1.renderer.enabled = (i % 3 == 0);
+				gc2.renderer.enabled = (i % 3 == 1);
+				gc3.renderer.enabled = (i % 3 == 2);
+				i += 1;
+				yield return new WaitForSeconds (delaiEntreEcrans);
 
-		 
-		gc1.renderer.enabled = true;
-		gc2.renderer.enabled = false;
-		gc3.renderer.enabled = false;
-		yield return new WaitForSeconds (delaiEntreEcrans);
+		}
 
-		gc1.renderer.enabled = false;
-		gc2.renderer.enabled = true;
-		gc3.renderer.enabled = false;
-		yield return new WaitForSeconds (delaiEntreEcrans);
-
-		gc1.renderer.enabled = false;
-		gc2.renderer.enabled = false;
-		gc3.renderer.enabled = true;
-		yield return new WaitForSeconds (delaiEntreEcrans);
 	}
 }
