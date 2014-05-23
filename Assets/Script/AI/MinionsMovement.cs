@@ -52,7 +52,7 @@ public class MinionsMovement : MonoBehaviour {
 
 			// si distance assez proche, beginAttackAnimation()
 
-		
+		return squad;
 	}
 
 	//for managing squads, need to know each's position.
