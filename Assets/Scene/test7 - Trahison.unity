@@ -133,6 +133,7 @@ GameObject:
   - 61: {fileID: 136862279}
   - 114: {fileID: 136862280}
   - 114: {fileID: 136862281}
+  - 114: {fileID: 136862282}
   m_Layer: 0
   m_Name: Ego
   m_TagString: Player
@@ -208,6 +209,8 @@ MonoBehaviour:
   keyDown: 115
   keyRight: 100
   keyLeft: 97
+  keyAttack: 0
+  keyAttackStrong: 0
   keyMove: 32
 --- !u!50 &136862278
 Rigidbody2D:
@@ -235,8 +238,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1.27999997, y: .50999999}
-  m_Center: {x: -.790000021, y: -1.88}
+  m_Size: {x: 3, y: .50999999}
+  m_Center: {x: -.639999986, y: -1.88}
 --- !u!114 &136862280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +267,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAttack: 20
   damageAttackStrong: 50
+  rageMultiplier: 1.5
+--- !u!114 &136862282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 136862273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae609f4f0cf83f84097ca2da051660a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rageMax: 100
+  rageModeTreshold: 50
+  vitalityMax: 100
+  armorMax: 5
 --- !u!1001 &159591521
 Prefab:
   m_ObjectHideFlags: 0
