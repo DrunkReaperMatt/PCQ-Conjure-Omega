@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour {
     // Actions
 
     private Movement movement;
-    private Character character;
+    //private Character character;
 
     void Start () {
 
@@ -51,6 +51,7 @@ public class PlayerControl : MonoBehaviour {
 
         if (useGamePad)
         {
+
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
 
