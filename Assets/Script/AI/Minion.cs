@@ -26,6 +26,7 @@ public enum MinionState {
 }
 
 public enum MinionAnimationState {
+	None,
 	Idling,
 	Walking,
 	Attacking,
@@ -39,30 +40,78 @@ public class Minion : MonoBehaviour {
 
 	public int startingHealth = 100; // maxHealth
 	public int startingArmor = 0; //Damage reduction, get higher to add challenge 
+	public int rotationSpeed = 3;
+	public float movementSpeed = 30;
+	public float minAttackDistance = 3.0f;
 
 	//private delegate SetDeadState;
 
 	private int currentHealth;
-	private Movement movement;   //memes mouvement que le player (cardinaux), pas de rage.
+	private Movement MinionsMovement;   //memes mouvement que le player (cardinaux), pas de rage.
 	private MinionState currentState;  			//movement
 	private MinionAnimationState currentAnimationState; // animation
  	
 	private const int MIN_HEALTH_TO_RETREAT_UNDER_RAGE_STATE = 35; //percentage
 	private const int MIN_HEALTH_TO_RETREAT = 15;
+	private const float ANIM_ATTACK_TIME = 1.1f;
+
+
+
+	private Transform playerTargetTransform;
+	private Transform currTransform; //local copy for better performance than looking up every frame
+	private Rigidbody2D currRigidBody; //local copy for better performance than looking up every frame
+
+	void Awake(){
+		currTransform = this.transform;
+		currRigidBody = this.rigidbody2D;
+	}
 
 	// Use this for initialization
 	void Start () {
 		currentState = MinionState.Spawning;
 		currentAnimationState = MinionAnimationState.Idling;
+
+		//optenir la référence vers l'objet player
+		playerTargetTransform = GameObject.FindWithTag ("Player").transform;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+
+ 
+	}		
+
+	void FixedUpdate(){
+		MoveTowardPlayer();
+		if (CanAttack()){
+			BeginAttackingAnimation();
+
+		}
 	}
+		                                        
 
 	public int GetCurrentHealth() {
 		return currentHealth;
+	}
+
+	private void MoveTowardPlayer(){
+		//rotate toward player
+		//currTransform.rotation = Quaternion.Slerp(currTransform.rotation, Quaternion.LookRotation(playerTargetTransform.position - currTransform.position), rotationSpeed * Time.deltaTime 
+
+		//dont rotate clockwise/anticw
+		currTransform.rotation = new Quaternion (0, 0, 0,0); 
+
+			//move toward player
+		Vector3 direction = new Vector3 ( Mathf.Round(currTransform.position.x) > Mathf.Round(playerTargetTransform.position.x) ? -1:1, 
+		                                  Mathf.Round(currTransform.position.y) > Mathf.Round(playerTargetTransform.position.y) ? -1:1, 
+		                                  0 );
+
+			///jiterry
+			///currTransform.position += direction * movementSpeed * Time.deltaTime;
+
+			this.rigidbody2D.velocity = direction * movementSpeed * Time.deltaTime;
 	}
 
 
@@ -71,7 +120,8 @@ public class Minion : MonoBehaviour {
  			currentHealth -= dmg;
 			//Killing blow? set dying stage. 
 			if (IsDead()){
-				SetDyingState();
+
+				BeginDyingAnimation();
 			}
 			else if (shouldRetreat()){
 				SetRetreatingingState();
@@ -110,24 +160,54 @@ public class Minion : MonoBehaviour {
 	//Move up = simulation profondeur Z
 
 
+	// peut attacker si assez proche. (beginAttack())
+	// peut pas attacker frame suivi si déjà en animation attaque.
+	public bool CanAttack(){
+		bool bCanAttack = false;
+		 
+		if (this.currentAnimationState == MinionAnimationState.Attacking) {
+			return false;
+		}
+		
+		if (  GetDistanceFromPlayer() > minAttackDistance ) {
+			return false;
+		}
+
+		return true;
+	}
 
 	//// ANIMATIONS 
 	/// public ou private? 
  
 
 	public void BeginWalkingAnimation(  ){
-		// anim 
+
 
 }
 
 	public void BeginIdlingAnimation( ){
 		// anim 
+		currentAnimationState = MinionAnimationState.Idling;
+
+
 }
 
 	public void BeginAttackingAnimation( ){
 		// anim 
+		Debug.Log ("CAN ATTACK!");
+		
+		currentAnimationState = MinionAnimationState.Attacking;
+
+		StartCoroutine (EndAttackingAnimation());
+		
+		
 		
 }
+	public  IEnumerator EndAttackingAnimation( ){
+			yield return new WaitForSeconds (ANIM_ATTACK_TIME);
+			currentAnimationState = MinionAnimationState.None;
+			Debug.Log ("Attack completed!");
+		}
 
 	public void BeginGettngHitAnimation( ){
 		// anim 
@@ -139,14 +219,20 @@ public class Minion : MonoBehaviour {
 	//funcWhenDone - BeginDecayingBodyAnimation
 	public void BeginDyingAnimation( ){
 		// anim 
-		
+		SetDyingState();
 		 
 	}
 
 	/// POLISH   -- flashy body, before removing from scene.
 	public void BeginDecayingBodyAnimation( ){
 		// anim 
-}
+	}
+
+
+
+	public  float GetDistanceFromPlayer(){
+		return Vector3.Distance (playerTargetTransform.position, this.currTransform.position);
+	}
 
 
 }
