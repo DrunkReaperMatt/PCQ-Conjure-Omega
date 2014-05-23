@@ -5,9 +5,12 @@ public class controller : MonoBehaviour {
 	public float speed = 10;
 	public GameObject camera;
 
+	private GameObject minion;
+
 	// Use this for initialization
 	void Start () {
-		camera  = GameObject.FindGameObjectWithTag("MainCamera");
+		camera = GameObject.FindGameObjectWithTag("MainCamera");
+		//minion = GameObject.GetComponent<GameController>();
 	}
 	
 	// Update is called once per frame
@@ -22,8 +25,6 @@ public class controller : MonoBehaviour {
 		{
 			bool track = camera.GetComponent<CameraControls>().tracking;
 			camera.GetComponent<CameraControls>().tracking = ( track == true) ? false : true;
-			Destroy(col.gameObject);
-			//Spawn Wave
 		}
 	}
 }

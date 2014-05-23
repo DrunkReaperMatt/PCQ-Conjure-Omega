@@ -155,6 +155,8 @@ MonoBehaviour:
   keyDown: 115
   keyRight: 100
   keyLeft: 97
+  keyAttack: 0
+  keyAttackStrong: 0
   keyMove: 32
 --- !u!95 &30022328
 Animator:
@@ -242,7 +244,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 171765936}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -441,7 +443,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 362005477}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -472,6 +474,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 407960815}
   - 61: {fileID: 407960814}
+  - 114: {fileID: 407960816}
   m_Layer: 0
   m_Name: ' Spawner 1'
   m_TagString: Trigger
@@ -501,6 +504,26 @@ Transform:
   m_LocalScale: {x: 0, y: 13, z: 1}
   m_Children: []
   m_Father: {fileID: 1314045236}
+--- !u!114 &407960816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407960813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfe67e8dded89844a6cf6ee72da0f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionPrefab: {fileID: 100000, guid: 91a4f2013471da149af80ac92975c83a, type: 2}
+  defaultSpawnPosition: {x: 0, y: 0}
+  minYSpawnPistionMinion: 0
+  maxYSpawnPistionMinion: 0
+  minionSpawnCount: 2
+  minionMaxCount: 10
+  minionSpawnWait: 5
+  startWait: 0
+  waveWait: 0
 --- !u!1 &830753087
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +572,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 830753087}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -686,7 +709,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1437988887}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
