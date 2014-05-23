@@ -28,6 +28,9 @@ public class Character : MonoBehaviour
     private Movement movement;
     private Rigidbody2D rigidBody;
 
+	public float healt = 100f;
+	public float HEALT_MAX = 100f;
+
 
     //private WayPoint lastWayPoint;
     private float timer = 0;

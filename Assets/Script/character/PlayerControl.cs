@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour {
     public KeyCode keyDown;
     public KeyCode keyRight;
     public KeyCode keyLeft;
-	public int test;
+
 
     // GamePad Controls
     public KeyCode keyMove;
