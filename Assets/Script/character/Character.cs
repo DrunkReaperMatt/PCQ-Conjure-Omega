@@ -33,7 +33,7 @@ public class Character : MonoBehaviour
     private Movement movement;
     private Rigidbody2D rigidBody;
 
-    private WayPoint lastWayPoint;
+    //private WayPoint lastWayPoint;
     private float timer = 0;
 
     void Start()
