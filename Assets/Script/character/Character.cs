@@ -2,12 +2,16 @@
 using System.Collections;
 using System;
 
+[RequireComponent(typeof(VitalStats))]
+[RequireComponent(typeof(PlayerControl))]
+[RequireComponent(typeof(Animator))]
+
 public class Character : MonoBehaviour
 {
     public enum CharacterState
     {
-        Idle, // 0
-        Walk, // 1
+        Idle,
+        Walk,
         AttackFast,
         AttackStrong,
         IsHit,
@@ -40,7 +44,7 @@ public class Character : MonoBehaviour
 
     public int damageAttack = 20;
     public int damageAttackStrong = 50;
-
+    public float rageMultiplier = 1.50f;
     #endregion
 
     void Start()
@@ -56,14 +60,9 @@ public class Character : MonoBehaviour
         State = CharacterState.Spawn;
 
     }
-    
-    /*
-    void Update()
-    {
-     
-    }
-    */ 
-   
+
+    #region ACCESSOR/MUTATOR
+
     public CharacterState State
     {
         get { return state; }
@@ -75,6 +74,25 @@ public class Character : MonoBehaviour
             } 
         }
     }
+
+    public bool CanMove
+    {
+        get { return canMove; }
+    }
+
+    public bool CanAttack
+    {
+        get { return canAttack; }
+    }
+
+    public bool CanBeHit
+    {
+        get { return canBeHit; }
+    }
+
+    #endregion
+
+    #region STATE ACTIONS
 
     public void UpdateCharacter() 
     {
@@ -168,8 +186,6 @@ public class Character : MonoBehaviour
 
     public void Spawn()
     {
-        //animation.Play("Spawn");
-
         canAttack = true;
         canMove = true;
         canBeHit = true; // put god mode here
@@ -178,6 +194,8 @@ public class Character : MonoBehaviour
         
         state = CharacterState.Idle;
     }
+
+    #endregion
 
     public void ApplyDamage(DamageCounter dc)
     {
@@ -254,7 +272,6 @@ public class Character : MonoBehaviour
             while (timer < ANIM_ISHIT)
             {
                 timer += Time.deltaTime;
-                Debug.Log("Timer : " + timer + " <> " + ANIM_ISHIT);
                 yield return new WaitForEndOfFrame();
             }
 

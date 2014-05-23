@@ -13,6 +13,7 @@ public class MyGameController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+    /*
 	void Update () {
         timer += Time.deltaTime;
         
@@ -23,4 +24,7 @@ public class MyGameController : MonoBehaviour {
         }
 
 	}
+     * */
+
+
 }
