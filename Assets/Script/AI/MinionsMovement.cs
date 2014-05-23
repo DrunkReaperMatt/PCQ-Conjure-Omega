@@ -12,7 +12,7 @@ using System.Collections;
 /// 
 /// 
 /// 
-public class MinionsMovement : MonoBehaviour {
+public class MinionsMovement : Movement {
 
 	public int MAX_ATTACKING_MINIONS = 4;
 

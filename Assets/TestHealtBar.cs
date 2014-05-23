@@ -32,7 +32,7 @@ public class TestHealtBar : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		scalex = ((player.healt / player.HEALT_MAX) - 1);
+		//scalex = ((player.healt / player.HEALT_MAX) - 1);
 
 
 		transform.localScale = new Vector3 (scalex, scaleY, 0);
