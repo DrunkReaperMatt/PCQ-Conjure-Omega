@@ -41,6 +41,7 @@ public class Minion : MonoBehaviour {
 	public int startingHealth = 100; // maxHealth
 	public int startingArmor = 0; //Damage reduction, get higher to add challenge 
 	public int rotationSpeed = 3;
+	public int attackDamage = 10;
 	public float movementSpeed = 30;
 	public float minAttackDistance = 3.0f;
 
@@ -53,7 +54,8 @@ public class Minion : MonoBehaviour {
  	
 	private const int MIN_HEALTH_TO_RETREAT_UNDER_RAGE_STATE = 35; //percentage
 	private const int MIN_HEALTH_TO_RETREAT = 15;
-	private const float ANIM_ATTACK_TIME = 1.1f;
+	private const float ANIM_ATTACK_TIME = 2.1f;
+	private const float ANIM_IDLE_TIME = 1.3f;
 
 
 
@@ -179,50 +181,78 @@ public class Minion : MonoBehaviour {
 	//// ANIMATIONS 
 	/// public ou private? 
  
+	#region Walking
 
 	public void BeginWalkingAnimation(  ){
 
+		currentAnimationState = MinionAnimationState.Walking;
+		StartCoroutine (EndWalkingAnimation());
+	}
 
-}
 
+	public  IEnumerator EndWalkingAnimation( ){
+		yield return new WaitForSeconds (ANIM_IDLE_TIME);
+		currentAnimationState = MinionAnimationState.None;
+	}
+
+	#endregion
+
+	#region Idling
 	public void BeginIdlingAnimation( ){
-		// anim 
-		currentAnimationState = MinionAnimationState.Idling;
+			// anim 
+			currentAnimationState = MinionAnimationState.Idling;
+		StartCoroutine (EndIdlingAnimation());
 
+	}
+	public  IEnumerator EndIdlingAnimation( ){
+		yield return new WaitForSeconds (ANIM_IDLE_TIME);
+		currentAnimationState = MinionAnimationState.None;
+	}
 
-}
-
+	#endregion
+	
+	#region Idling
 	public void BeginAttackingAnimation( ){
 		// anim 
 		Debug.Log ("CAN ATTACK!");
-		
+
 		currentAnimationState = MinionAnimationState.Attacking;
 
 		StartCoroutine (EndAttackingAnimation());
-		
-		
-		
+
 }
 	public  IEnumerator EndAttackingAnimation( ){
-			yield return new WaitForSeconds (ANIM_ATTACK_TIME);
-			currentAnimationState = MinionAnimationState.None;
-			Debug.Log ("Attack completed!");
+		yield return new WaitForSeconds (ANIM_ATTACK_TIME);
+		currentAnimationState = MinionAnimationState.None;
+	
+		// if Attack collided (player didnt dodge)
+				
+		GameObject player = GameObject.FindWithTag ("Player");
+
+		player.SendMessage("ApplyDamage", new DamageCounter(null, attackDamage));	
+		 
+			Debug.Log ("Attack completed! ");
 		}
+
+	#endregion
+	
+	#region Attacking
 
 	public void BeginGettngHitAnimation( ){
 		// anim 
 		
 	 
 	}
+	#endregion
 
-
-	//funcWhenDone - BeginDecayingBodyAnimation
+	#region Dying
+ 
 	public void BeginDyingAnimation( ){
 		// anim 
 		SetDyingState();
 		 
 	}
-
+	#endregion
 	/// POLISH   -- flashy body, before removing from scene.
 	public void BeginDecayingBodyAnimation( ){
 		// anim 

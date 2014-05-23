@@ -17,9 +17,11 @@ public class Movement : MonoBehaviour {
     private int rotationX = 0;
     private int rotationY = 0;
 
+    private bool lookRight;
+
     void Start()
     {
-        Rotate();
+        LookRight = true;
     }
 
     public float MoveSpeed
@@ -34,21 +36,21 @@ public class Movement : MonoBehaviour {
         {
 
             case MovementType.Up:
-                gameObject.transform.Translate( Vector3.up * MoveSpeed * Time.deltaTime);				
+                transform.Translate( Vector3.up * MoveSpeed * Time.deltaTime);				
                 break;
 
             case MovementType.Down:
-                gameObject.transform.Translate(-1 * Vector3.up * MoveSpeed * Time.deltaTime);
+                transform.Translate(-1 * Vector3.up * MoveSpeed * Time.deltaTime);
                 break;
 
             case MovementType.Right:
-                gameObject.transform.Translate(Vector3.right * 2 * MoveSpeed * Time.deltaTime);
-                //rotationY = 0;
+                transform.Translate(Vector3.right * 2 * MoveSpeed * Time.deltaTime);
+                LookRight = true;
                 break;
 
             case MovementType.Left:
-                gameObject.transform.Translate(Vector3.right * 2 * MoveSpeed * Time.deltaTime);
-                //rotationY = 180;
+                transform.Translate(-1 * Vector3.right * 2 * MoveSpeed * Time.deltaTime);
+                LookRight = false;
                 break;
 
             default:
@@ -56,22 +58,26 @@ public class Movement : MonoBehaviour {
 
         }
 
-        Rotate();
+        //Rotate();
     }
 
-    // return 1 if gravity is normal (or null) or -1 if inverted (To infinity, and beyond!)
-  
-    protected void InvertAxeY()
+    public bool LookRight
     {
-
-        if (rotationY == 0) { rotationY = 180; }
-        else if (rotationY == 180) { rotationY = 0; }
+        get { return lookRight; }
+        set
+        {
+            if (lookRight != value)
+            {
+                lookRight = !lookRight;
+                SetLookDirection();
+            }
+        }
     }
 
-    // rotate based on direction and gravity
-	protected void Rotate()
+    public void SetLookDirection()
     {
-        //rotationX = (GravityCheck() > 0 ? 0 : 180);
-        transform.eulerAngles = new Vector2(rotationX, rotationY);
+        transform.localScale = new Vector2((lookRight ? -1 : 1), 1);
     }
+
+    
 }

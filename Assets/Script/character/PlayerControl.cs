@@ -3,8 +3,8 @@ using System.Collections;
 
 using System;
 
+
 [RequireComponent(typeof(Character))]
-[RequireComponent(typeof(Movement))]
 
 public class PlayerControl : MonoBehaviour {
 
@@ -31,7 +31,7 @@ public class PlayerControl : MonoBehaviour {
     private Character character;
 
     void Start () {
-
+        transform.localScale = new Vector2(-1,1);
         movement = GetComponent<Movement>();
         character = GetComponent<Character>();
 
@@ -51,7 +51,7 @@ public class PlayerControl : MonoBehaviour {
 
         if (useGamePad)
         {
-
+            
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
 
@@ -62,7 +62,7 @@ public class PlayerControl : MonoBehaviour {
             if (x < 0.2 && x > -0.2) x = 0;
             if (y < 0.2 && y > -0.2) y = 0;
 
-            Debug.Log((character.CanMove ? "yo, i can move" : "i am stuck"));
+            //Debug.Log((character.CanMove ? "yo, i can move" : "i am stuck"));
 
             if(character.CanMove)
             {
@@ -81,20 +81,26 @@ public class PlayerControl : MonoBehaviour {
         }
         else
         {
+            bool isWalking = false;
+
             if (character.CanMove)
             {
-                if (Input.GetKey(keyUp)) { movement.Move(MovementType.Up); }
-                if (Input.GetKey(keyDown)) { movement.Move(MovementType.Down); }
-                if (Input.GetKey(keyRight)) { movement.Move(MovementType.Right); }
-                if (Input.GetKey(keyLeft)) { movement.Move(MovementType.Left); }
+                if (Input.GetKey(keyUp)) { movement.Move(MovementType.Up); isWalking = true; }
+                if (Input.GetKey(keyDown)) { movement.Move(MovementType.Down); isWalking = true; }
+                if (Input.GetKey(keyRight)) { movement.Move(MovementType.Right); isWalking = true; }
+                if (Input.GetKey(keyLeft)) { movement.Move(MovementType.Left); isWalking = true; }
             }
-            
+
+            if (isWalking) character.State = Character.CharacterState.Walk;
+            else if (character.CanMove) character.State = Character.CharacterState.Idle;
+
             if(character.CanAttack)
             {
                 if (Input.GetKey(keyAttack)) { character.State = Character.CharacterState.AttackFast; }
-                if (Input.GetKey(keyAttackStrong)) { character.State = Character.CharacterState.AttackFast; }
+                if (Input.GetKey(keyAttackStrong)) { character.State = Character.CharacterState.AttackStrong; }
                 //if (Input.GetKey(keyActivateRage)) { character.RageModeActivation; }
             }
+            
         }
         
     }
