@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour {
     // Actions
 
     private Movement movement;
-    //private Character character;
+    private Character character;
 
     void Start () {
 
