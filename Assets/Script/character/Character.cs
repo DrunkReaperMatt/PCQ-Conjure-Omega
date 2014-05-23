@@ -6,8 +6,8 @@ public class Character : MonoBehaviour
 {
     public enum CharacterState
     {
-        Idle,
-        Walk,
+        Idle, // 0
+        Walk, // 1
         AttackFast,
         AttackStrong,
         IsHit,
@@ -30,9 +30,9 @@ public class Character : MonoBehaviour
 
     #region ANIMATION/ACTION TIME
 
-    private const float ANIM_ISHIT = 0.855f;
-    private const float ANIM_ATTACK = 0.625f;
-    private const float ANIM_STRONG = 1.667f;
+    private const float ANIM_ISHIT = 0.820f;//0.855f;
+    private const float ANIM_ATTACK = 0.600f;//0.625f;
+    private const float ANIM_STRONG = 1.620f;//1.667f;
 
     #endregion
 
@@ -45,15 +45,15 @@ public class Character : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Started");
 
-        state = CharacterState.Spawn;
         canAttack = false;
         canMove = false;
 
         //movement = GetComponent<Movement>();
         vitals = GetComponent<VitalStats>();
         anim = GetComponent<Animator>();
+
+        State = CharacterState.Spawn;
 
     }
     
@@ -100,6 +100,14 @@ public class Character : MonoBehaviour
                 IsHit();
                 break;
 
+            case CharacterState.Spawn:
+                Spawn();
+                break;
+
+            case CharacterState.Death:
+                Die();
+                break;
+
             default:
 
                 break;
@@ -108,30 +116,33 @@ public class Character : MonoBehaviour
 
     public void Idle()
     {
-        anim.SetInteger(hashMeState, 0);
+        anim.SetInteger(hashMeState, (int) CharacterState.Idle);
     }
 
     public void Walk()
     {
-        anim.SetInteger(hashMeState, 1);
+        anim.SetInteger(hashMeState, (int)CharacterState.Walk);
     }
 
     public void AttackFast()
     {
-        anim.SetInteger(hashMeState, 2);
+        anim.SetInteger(hashMeState, (int)CharacterState.AttackFast);
+        StartCoroutine("ActionAttack");
     }
 
     public void AttackStrong()
     {
-        anim.SetInteger(hashMeState, 3);
+        anim.SetInteger(hashMeState, (int)CharacterState.AttackStrong);
+        StartCoroutine("ActionAttackStrong");
     }
 
     public void IsHit()
     {
-        anim.SetInteger(hashMeState, 4);
+        anim.SetInteger(hashMeState, (int)CharacterState.IsHit);
+        StartCoroutine("ActionIsHit");
     }
 
-    public void Death()
+    public void Die()
     {
         canAttack = false;
         canMove = false;
@@ -159,27 +170,36 @@ public class Character : MonoBehaviour
     {
         //animation.Play("Spawn");
 
-        canAttack = false;
-        canMove = false;
-        canBeHit = false;
+        canAttack = true;
+        canMove = true;
+        canBeHit = true; // put god mode here
 
-        anim.enabled = false;
-
+        anim.enabled = true;
+        
         state = CharacterState.Idle;
     }
 
-    public void ReceivingDamage(GameObject dealer, int damage)
+    public void ApplyDamage(DamageCounter dc)
     {
-        vitals.ReceiveDamage(damage);
-        Debug.Log("Received : " + damage + " <> Remaining : " + vitals.Vitality);
-        stillHasHealt();
+        if (canBeHit)
+        {
+            vitals.ReceiveDamage(dc.Damage);
+            Debug.Log("Received : " + dc.Damage + " <> Remaining : " + vitals.Vitality);
+            stillHasHealt();
+        }
+        else { Debug.Log("Invulnerable"); }
+        
     }
 
     public void stillHasHealt()
     {
         if (!vitals.HasHealt())
         {
-            state = CharacterState.Death;
+            State = CharacterState.Death;
+        }
+        else
+        {
+            State = CharacterState.IsHit;
         }
     }
 
@@ -199,6 +219,7 @@ public class Character : MonoBehaviour
             }
 
             canAttack = canMove = true;
+            State = CharacterState.Idle;
         }
     }
 
@@ -218,24 +239,28 @@ public class Character : MonoBehaviour
             }
 
             canAttack = canMove = true;
+            State = CharacterState.Idle;
         }
     }
 
     public IEnumerator ActionIsHit()
     {
-        if (canAttack)
+        if (canBeHit)
         {
             float timer = 0f;
 
-            canAttack = canMove = false;
+            canAttack = canMove = canBeHit = false;
 
-            while (timer < ANIM_ATTACK)
+            while (timer < ANIM_ISHIT)
             {
                 timer += Time.deltaTime;
+                Debug.Log("Timer : " + timer + " <> " + ANIM_ISHIT);
                 yield return new WaitForEndOfFrame();
             }
 
-            canAttack = canMove = true;
+            canAttack = canMove = canBeHit = true;
+
+            State = CharacterState.Idle;
         }
     }
 
@@ -245,7 +270,7 @@ public class Character : MonoBehaviour
         int i = 0;
         while (i < hitColliders.Length)
         {
-            hitColliders[i].SendMessage("ReceiveDamage", new DamageCounter(transform.root.gameObject,damage));
+            hitColliders[i].SendMessage("ApplyDamage", new DamageCounter(transform.root.gameObject,damage));
             i++;
         }
     }
