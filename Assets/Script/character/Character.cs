@@ -2,8 +2,9 @@
 using System.Collections;
 using System;
 
+
+[RequireComponent(typeof(Movement))]
 [RequireComponent(typeof(VitalStats))]
-[RequireComponent(typeof(PlayerControl))]
 [RequireComponent(typeof(Animator))]
 
 public class Character : MonoBehaviour
@@ -22,7 +23,7 @@ public class Character : MonoBehaviour
 
     private CharacterState state;
 
-    private Movement movement;
+    //private Movement movement;
     private VitalStats vitals;
     private Animator anim;
 
@@ -70,6 +71,7 @@ public class Character : MonoBehaviour
             if (value != this.state)
             {
                 state = value;
+                Debug.Log(state);
                 UpdateCharacter();
             } 
         }
@@ -134,29 +136,29 @@ public class Character : MonoBehaviour
 
     public void Idle()
     {
-        anim.SetInteger(hashMeState, (int) CharacterState.Idle);
+        anim.Play("Idle");
     }
 
     public void Walk()
     {
-        anim.SetInteger(hashMeState, (int)CharacterState.Walk);
+        anim.Play("Walk");
     }
 
     public void AttackFast()
     {
-        anim.SetInteger(hashMeState, (int)CharacterState.AttackFast);
+        anim.Play("Attack");
         StartCoroutine("ActionAttack");
     }
 
     public void AttackStrong()
     {
-        anim.SetInteger(hashMeState, (int)CharacterState.AttackStrong);
+        anim.Play("Strong");
         StartCoroutine("ActionAttackStrong");
     }
 
     public void IsHit()
     {
-        anim.SetInteger(hashMeState, (int)CharacterState.IsHit);
+        anim.Play("Hit");
         StartCoroutine("ActionIsHit");
     }
 
@@ -167,21 +169,6 @@ public class Character : MonoBehaviour
         canBeHit = false;
 
         anim.enabled = false;
-        //animation.Play("Death");
-        /*
-        if (timer != 0)
-        {
-            if (timer == Time.time)
-            {
-                State = CharacterState.Spawn;
-                timer = 0;
-            }
-        }
-        else
-        {
-            timer = Time.time;
-        }
-        */
     }
 
     public void Spawn()
@@ -190,7 +177,7 @@ public class Character : MonoBehaviour
         canMove = true;
         canBeHit = true; // put god mode here
 
-        anim.enabled = true;
+        //anim.enabled = true;
         
         state = CharacterState.Idle;
     }
@@ -199,11 +186,9 @@ public class Character : MonoBehaviour
 
     public void ApplyDamage(DamageCounter dc)
     {
-		Debug.Log("Received : " + dc.Damage);
         if (canBeHit)
         {
             vitals.ReceiveDamage(dc.Damage);
-            
             stillHasHealt();
         }
         else { Debug.Log("Invulnerable"); }
@@ -216,7 +201,7 @@ public class Character : MonoBehaviour
         {
             State = CharacterState.Death;
         }
-        else
+        else if (state != CharacterState.AttackFast && state != CharacterState.AttackStrong)
         {
             State = CharacterState.IsHit;
         }
@@ -250,7 +235,7 @@ public class Character : MonoBehaviour
 
             canAttack = canMove = false;
 
-            while (timer < ANIM_ATTACK)
+            while (timer < ANIM_STRONG)
             {
                 timer += Time.deltaTime;
                 //if (timer == 0.5f) { /*DealDamage(1,1);*/ }
@@ -284,7 +269,7 @@ public class Character : MonoBehaviour
 
     public void DealDamage(float range, int damage )
     {
-        Collider[] hitColliders = Physics.OverlapSphere(new Vector2(transform.position.x + range, transform.position.y), 1.5f);
+        Collider[] hitColliders = Physics.OverlapSphere(new Vector2(transform.position.x + (-transform.localScale.x * range), transform.position.y), 1.5f);
         int i = 0;
         while (i < hitColliders.Length)
         {

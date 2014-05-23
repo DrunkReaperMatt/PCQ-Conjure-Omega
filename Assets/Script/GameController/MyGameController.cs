@@ -13,18 +13,18 @@ public class MyGameController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-    /*
+    
 	void Update () {
         timer += Time.deltaTime;
         
-        if (timer > 3.0f)
+        if (timer > 4.0f)
         {
-            thePlayer.SendMessage("ApplyDamage", new DamageCounter(null, 10));
+            thePlayer.GetComponent<Character>().SendMessage("ApplyDamage", new DamageCounter(null, 10));
             timer = 0f;
         }
 
 	}
-     * */
+    
 
 
 }
