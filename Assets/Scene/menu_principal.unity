@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1013757457}
-  functionName: MenuNewGame_onClick
+  functionName: MenuConfigInput_onClick
   trigger: 0
   includeChildren: 0
 --- !u!114 &253528572
@@ -648,7 +648,7 @@ GameObject:
   - 114: {fileID: 397195883}
   - 114: {fileID: 397195882}
   m_Layer: 8
-  m_Name: Save Game
+  m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,7 +694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1013757457}
-  functionName: MenuSaveGame_onClick
+  functionName: MenuConfigGraphic_onClick
   trigger: 0
   includeChildren: 0
 --- !u!114 &397195884
@@ -970,7 +970,7 @@ GameObject:
   - 114: {fileID: 1013757460}
   - 114: {fileID: 1013757459}
   m_Layer: 8
-  m_Name: 'Panel Config menu '
+  m_Name: panelMenuConfig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1013757457}
-  functionName: MenuExit_onClick
+  functionName: MenuRetourMainMenu_onClick
   trigger: 0
   includeChildren: 0
 --- !u!114 &1310787459
@@ -1988,7 +1988,7 @@ GameObject:
   - 114: {fileID: 1568363968}
   - 114: {fileID: 1568363969}
   m_Layer: 8
-  m_Name: 'Panel main menu '
+  m_Name: panelMenuPrincipal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

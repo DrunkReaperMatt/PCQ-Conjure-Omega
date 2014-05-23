@@ -3,7 +3,8 @@ using System.Collections;
 
 public enum enGameState
 {
-	NOTSTARTED,
+	MAIN_MENU,
+	CONFIG_MENU,
 	INGAME,
 	PAUSED
 };
@@ -13,21 +14,28 @@ public class MainMenu : MonoBehaviour {
 	private enGameState CurrentGameState;
 	private GameObject BtnResumeGame;
 	private GameObject BtnStartNewGame;
+	private GameObject panelMenuConfig;
+	private GameObject panelMenuPrincipal;
 
-	private const int X_POSITION_HORS_SCENE = -1000;
+	private const int X_POSITION_HORS_SCENE = -100000;
 	private const int X_POSITION_CENTERED_SCENE = 0;
 
 
 	
 	// Use this for initialization
 	void Start () {
-		CurrentGameState = enGameState.NOTSTARTED;
+		CurrentGameState = enGameState.MAIN_MENU;
 
 		BtnStartNewGame = GameObject.Find ("buttonStartNewGame");
 		BtnResumeGame 	= GameObject.Find ("buttonResumeGame");
+		panelMenuConfig = GameObject.Find ("panelMenuConfig");
+		panelMenuPrincipal= GameObject.Find ("panelMenuPrincipal");
 
 		if (BtnResumeGame != null) {
 			BtnResumeGame.transform.position = new Vector3 (X_POSITION_HORS_SCENE, BtnStartNewGame.transform.position.y, BtnStartNewGame.transform.position.z);
+		}
+		if (panelMenuConfig != null) {
+			panelMenuConfig.transform.position = new Vector3 (X_POSITION_HORS_SCENE, panelMenuConfig.transform.position.y, panelMenuConfig.transform.position.z);
 		}
 	}
 
@@ -41,9 +49,9 @@ public class MainMenu : MonoBehaviour {
 
 		//TODO: optional load screen? 
 
-		//Application.LoadLevel (1);
+		Application.LoadLevel ("scene");
+		CurrentGameState = enGameState.INGAME;
 
-		ChangeButtonStartResumeGame();
 	}
 
 	private void ChangeButtonStartResumeGame(){
@@ -67,15 +75,56 @@ public class MainMenu : MonoBehaviour {
 
 	void MenuConfig_onClick(){
 		Debug.Log ("MenuConfig_onClick()");		
+
+		CurrentGameState = enGameState.CONFIG_MENU;
+
+		if (panelMenuPrincipal != null) {
+			panelMenuPrincipal.transform.position = new Vector3 (X_POSITION_HORS_SCENE, panelMenuPrincipal.transform.position.y, panelMenuPrincipal.transform.position.z);
+		}
+
+		//TODO:animation transition 
+		if (panelMenuConfig != null) {
+			panelMenuConfig.transform.position = new Vector3 (X_POSITION_CENTERED_SCENE, panelMenuConfig.transform.position.y, panelMenuConfig.transform.position.z);
+		}
+
+	
+	
 	}
 
+
+	
 	void MenuExit_onClick(){
-
-
+		
+		
 		//TODO: demander confirmation 
 		Application.Quit ();
 	}
-	 
+
+
+
+	void MenuConfigInput_onClick(){
+
+
+	}
+
+	void MenuConfigGraphic_onClick(){
+	
+	}
+
+	
+	void MenuRetourMainMenu_onClick(){
+
+		CurrentGameState = enGameState.MAIN_MENU;
+
+		if (panelMenuPrincipal != null) {
+			panelMenuPrincipal.transform.position = new Vector3 (X_POSITION_CENTERED_SCENE, panelMenuPrincipal.transform.position.y, panelMenuPrincipal.transform.position.z);
+		}
+		
+		//TODO:animation transition 
+		if (panelMenuConfig != null) {
+			panelMenuConfig.transform.position = new Vector3 (X_POSITION_HORS_SCENE, panelMenuConfig.transform.position.y, panelMenuConfig.transform.position.z);
+		}
+	} 
 
 
 
@@ -86,15 +135,23 @@ public class MainMenu : MonoBehaviour {
 		
 		//Pause on escape
 		if (Input.GetKeyDown (KeyCode.Escape)  && CurrentGameState == enGameState.INGAME ) {
-			ButtonResumeGame_onClick();
+			ChangeButtonStartResumeGame();
+			PauseGameAndShowMainMenu();
 		}
-		else if (Input.GetKeyDown (KeyCode.Escape)  && CurrentGameState == enGameState.PAUSED )  {
+		else if (Input.GetKeyDown(KeyCode.Escape)  && CurrentGameState == enGameState.PAUSED )  {
 			ButtonResume_onClick();
 		}
+		else if (Input.GetKeyDown(KeyCode.Escape)  && CurrentGameState == enGameState.CONFIG_MENU )  {
+			MenuRetourMainMenu_onClick();
+		}
+		else if (Input.GetKeyDown(KeyCode.Escape)  && CurrentGameState == enGameState.MAIN_MENU )  {
+			MenuExit_onClick();
+		}
+
 		
 	}
 
-	void ButtonResumeGame_onClick(){
+	void PauseGameAndShowMainMenu(){
 	
 		Time.timeScale = 0;
 		CurrentGameState = enGameState.PAUSED;
