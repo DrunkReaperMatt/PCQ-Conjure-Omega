@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: 16ba3fe2750696d4c998a4f87aff6093
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Ego_Hitted.001
+      rect:
+        serializedVersion: 2
+        x: 5780
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.002
+      rect:
+        serializedVersion: 2
+        x: 5780
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.003
+      rect:
+        serializedVersion: 2
+        x: 5138
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.004
+      rect:
+        serializedVersion: 2
+        x: 5138
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.005
+      rect:
+        serializedVersion: 2
+        x: 5780
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.006
+      rect:
+        serializedVersion: 2
+        x: 5138
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.007
+      rect:
+        serializedVersion: 2
+        x: 4496
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.008
+      rect:
+        serializedVersion: 2
+        x: 4496
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.009
+      rect:
+        serializedVersion: 2
+        x: 4496
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.010
+      rect:
+        serializedVersion: 2
+        x: 5780
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.011
+      rect:
+        serializedVersion: 2
+        x: 5138
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.012
+      rect:
+        serializedVersion: 2
+        x: 4496
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.013
+      rect:
+        serializedVersion: 2
+        x: 3854
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.014
+      rect:
+        serializedVersion: 2
+        x: 3854
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.015
+      rect:
+        serializedVersion: 2
+        x: 3854
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.016
+      rect:
+        serializedVersion: 2
+        x: 3854
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.017
+      rect:
+        serializedVersion: 2
+        x: 5780
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.018
+      rect:
+        serializedVersion: 2
+        x: 5138
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.019
+      rect:
+        serializedVersion: 2
+        x: 4496
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.020
+      rect:
+        serializedVersion: 2
+        x: 3854
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.021
+      rect:
+        serializedVersion: 2
+        x: 3212
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.022
+      rect:
+        serializedVersion: 2
+        x: 3212
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.023
+      rect:
+        serializedVersion: 2
+        x: 3212
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.024
+      rect:
+        serializedVersion: 2
+        x: 3212
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.025
+      rect:
+        serializedVersion: 2
+        x: 3212
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.026
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.027
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.028
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.029
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.030
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.031
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.032
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.033
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.034
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.035
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.036
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.037
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.038
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.039
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.040
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.041
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.042
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.043
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.044
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.045
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.046
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.047
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 484
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.048
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 966
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.049
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1448
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Ego_Hitted.050
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1930
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 
