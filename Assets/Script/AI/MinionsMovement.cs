@@ -32,7 +32,7 @@ public class MinionsMovement : MonoBehaviour {
 		
 		Minion[] remainingActiveMinions;
 
-
+		return null;
 		
 		//GetPlayerPos;
 
