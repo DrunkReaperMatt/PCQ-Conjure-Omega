@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 169538466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.499999493, y: .500006616, z: 0}
+  m_LocalPosition: {x: -9.20891762e-06, y: .500007391, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1694320102}
@@ -304,6 +304,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 959230083}
   - 212: {fileID: 959230082}
+  - 114: {fileID: 959230084}
   m_Layer: 0
   m_Name: Fond
   m_TagString: Untagged
@@ -345,6 +346,22 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &959230084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 959230081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae609f4f0cf83f84097ca2da051660a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rageMax: 100
+  rageModeTreshold: 50
+  vitalityMax: 100
+  armorMax: 5
+  vitality: 0
 --- !u!1 &1307097401
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +375,7 @@ GameObject:
   - 114: {fileID: 1307097403}
   - 50: {fileID: 1307097402}
   - 114: {fileID: 1307097407}
+  - 114: {fileID: 1307097408}
   m_Layer: 0
   m_Name: Character2
   m_TagString: Untagged
@@ -455,8 +473,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63a8da5857767a44ad0fd6b50d65a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healt: 100
-  HEALT_MAX: 100
+  damageAttack: 20
+  damageAttackStrong: 50
+--- !u!114 &1307097408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307097401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae609f4f0cf83f84097ca2da051660a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rageMax: 100
+  rageModeTreshold: 50
+  vitalityMax: 100
+  armorMax: 5
+  vitality: 0
 --- !u!1 &1694320101
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,17 +535,17 @@ MonoBehaviour:
   widgetsAreStatic: 0
   cullWhileDragging: 0
   worldToLocal:
-    e00: 239.999985
+    e00: 308
     e01: 0
     e02: 0
-    e03: -119.499992
+    e03: -153.999985
     e10: 0
-    e11: 239.999985
+    e11: 308
     e12: 0
-    e13: -120.5
+    e13: -154.5
     e20: 0
     e21: 0
-    e22: 239.999985
+    e22: 308
     e23: 0
     e30: 0
     e31: 0
@@ -546,7 +580,7 @@ Transform:
   m_GameObject: {fileID: 1856176608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .5, y: .5, z: 0}
-  m_LocalScale: {x: .00416666688, y: .00416666688, z: .00416666688}
+  m_LocalScale: {x: .00324675324, y: .00324675324, z: .00324675324}
   m_Children:
   - {fileID: 851161678}
   m_Father: {fileID: 0}
@@ -627,6 +661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d04a1ed99f367f478b7e0b5cd96d981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1307097407}
-  scaleY: 1
-  scalex: 1
+  player: {fileID: 0}
+  scaleY: 0
+  scalex: 0

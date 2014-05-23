@@ -128,7 +128,11 @@ public class Character : MonoBehaviour
 
     public void IsHit()
     {
+<<<<<<< HEAD
+        //animation.Play();
+=======
         anim.SetInteger(hashMeState, 4);
+>>>>>>> 6c937c36a9003075f5bb4f94fde37f80cd58f78b
     }
 
     public void Death()
