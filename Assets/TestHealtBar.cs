@@ -6,7 +6,7 @@ public class TestHealtBar : MonoBehaviour {
 
 	private float longeurMax = 0;
 
-	public Character player;
+	//public Character player;
 
 	public float scaleY;
 	public float scalex;
