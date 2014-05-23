@@ -25,8 +25,9 @@ public class Character : MonoBehaviour
     //public float spawnTime = 3;
     private CharacterState state;
 
-    private Movement movement;
+    //private Movement movement;
     private VitalStats vitals;
+    private Animator animator;
 
     private bool canAttack;
     private bool canMove;
@@ -36,12 +37,14 @@ public class Character : MonoBehaviour
 
     void Start()
     {
-
+        state = CharacterState.Spawn;
         canAttack = false;
         canMove = false;
 
-        movement = GetComponent<Movement>();
+        //movement = GetComponent<Movement>();
         vitals = GetComponent<VitalStats>();
+
+        State = CharacterState.IsHit;
     }
     
     /*
@@ -54,18 +57,48 @@ public class Character : MonoBehaviour
     public CharacterState State
     {
         get { return state; }
-        set { 
+        set {
             if (value != this.state)
             {
                 state = value;
+                UpdateCharacter();
             } 
         }
     }
 
+    public void UpdateCharacter() 
+    {
+        switch (state)
+        {
+            case CharacterState.Idle:
+                Idle();
+                break;
+
+            case CharacterState.Walk:
+                Walk();
+                break;
+
+            case CharacterState.AttackFast:
+                AttackFast();
+                break;
+
+            case CharacterState.AttackStrong:
+                AttackStrong();
+                break;
+
+            case CharacterState.IsHit:
+                IsHit();
+                break;
+
+            default:
+
+                break;
+        }
+    }
 
     public void Idle()
     {
-        animation.Play("Idle");
+        animation.CrossFade("Idle");
     }
 
     public void Walk()
@@ -75,17 +108,17 @@ public class Character : MonoBehaviour
 
     public void AttackFast()
     {
-        animation.Play("AttackFast");
+        animation.Play("Attack");
     }
 
     public void AttackStrong()
     {
-        animation.Play("AttackStrong");
+        animation.Play("Strong");
     }
 
     public void IsHit()
     {
-        animation.Play("IsHit");
+        animation.Play();
     }
 
     public void Death()
