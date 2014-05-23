@@ -14,50 +14,43 @@ public class Character : MonoBehaviour
     {
         Idle,
         Walk,
+        AttackFast,
+        AttackStrong,
+        IsHit,
         Death,
-        Spawn
+        Spawn,
+        Invulnerable
     }
 
     //public float spawnTime = 3;
     private CharacterState state;
 
-
-    public AudioSource audioLanding;
-    public AudioSource audioDiePick;
-
     private Movement movement;
-    private Rigidbody2D rigidBody;
+    private VitalStats vitals;
 
+    private bool canAttack;
+    private bool canMove;
 
     //private WayPoint lastWayPoint;
     private float timer = 0;
 
     void Start()
     {
+
+        canAttack = false;
+        canMove = false;
+
         movement = GetComponent<Movement>();
-        rigidBody = GetComponent<Rigidbody2D>();
-        
-        //State = CharacterState.Spawn;
+        vitals = GetComponent<VitalStats>();
     }
     
+    /*
     void Update()
     {
-        //if (State == CharacterState.Death || State == CharacterState.Spawn) return; //
-
-		       
-	    float velocityX = rigidBody.velocity.x;
-			float velocityY = rigidBody.velocity.y;
-	    if ((velocityX > 0.05) || (velocityY > 0.05))
-	    {
-	       State = CharacterState.Walk;
-	    }
-	    else
-	    {
-	        State = CharacterState.Idle;
-	    }
      
     }
-    
+    */
+   
     public CharacterState State
     {
         get { return state; }
@@ -65,30 +58,40 @@ public class Character : MonoBehaviour
             if (value != this.state)
             {
                 state = value;
-                UpdateAnimation(this.state);
             } 
         }
     }
 
-    private void UpdateAnimation(CharacterState stateUpdate)
-    {
-
-    }
 
     public void Idle()
     {
-
+        animation.Play("Idle");
     }
 
     public void Walk()
     {
-	
-
+        animation.Play("Walk");
     }
 
+    public void AttackFast()
+    {
+        animation.Play("AttackFast");
+    }
+
+    public void AttackStrong()
+    {
+        animation.Play("AttackStrong");
+    }
+
+    public void IsHit()
+    {
+        animation.Play("IsHit");
+    }
 
     public void Death()
     {
+        animation.Play("Death");
+        /*
         if (timer != 0)
         {
             if (timer == Time.time)
@@ -101,24 +104,24 @@ public class Character : MonoBehaviour
         {
             timer = Time.time;
         }
-        
+        */
     }
 
     public void Spawn()
     {
+        animation.Play("Spawn");
+    }
+
+    public void ReceivingDamage(GameObject dealer, int damage)
+    {
 
     }
-    /*
-    void OnTriggerEnter2D(Collider2D other)
+
+    public void stillHasHealt()
     {
-        if (other.transform.GetComponent<WayPoint>() != null)
+        if (!vitals.HasHealt())
         {
-            lastWayPoint = other.transform.GetComponent<WayPoint>();
+
         }
-    }
-    */
-    public void OnBecameInvisible()
-    {
-        enabled = false;
     }
 }
