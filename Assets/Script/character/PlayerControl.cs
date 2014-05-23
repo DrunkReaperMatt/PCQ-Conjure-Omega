@@ -48,6 +48,7 @@ public class PlayerControl : MonoBehaviour {
     {
         if (useGamePad)
         {
+
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
 
