@@ -60,15 +60,13 @@ public class Minion : MonoBehaviour {
 	
 	}
 
-
-
 	public int GetCurrentHealth() {
 		return currentHealth;
 	}
 
 
 	public void ReceiveDamage(int dmg) {
-		if (currentState != MinionState.Dead || currentState != MinionState.Dying) {
+		if (currentState != MinionState.Dead || currentAnimationState != MinionAnimationState.Dying) {
 			currentHealth -= dmg;
 			//Killing blow? set dying stage. 
 			if (IsDead()){
@@ -98,7 +96,7 @@ public class Minion : MonoBehaviour {
 
 	public bool shouldRetreat() {
 		bool bRetreat = false;
-		if ( (GetCurrentHeat() / MaxHealth) * 100  < MIN_HEALTH_TO_RETREAT){	
+		if ( (GetCurrentHealth() / startingHealth) * 100  < MIN_HEALTH_TO_RETREAT){	
 			bRetreat = true;
 		}
 		//if ((GetCurrentHeat() / MaxHealth) * 100 < MIN_HEALTH_TO_RETREAT_UNDER_RAGE_STATE && PlayerInRageState()){	
@@ -114,23 +112,23 @@ public class Minion : MonoBehaviour {
 
 	//// ANIMATIONS 
 	/// public ou private? 
-
+	/*
 	public void BeginWalkingAnimation( EventDelegate funcWhenDone){
 		// anim 
 
-		funcWhenDone ();
+		funcWhenDone();
 	}
 
 	public void BeginIdlingAnimation(EventDelegate funcWhenDone){
 		// anim 
 		
-		funcWhenDone ();
+		funcWhenDone();
 	}
 
 	public void BeginAttackingAnimation(EventDelegate funcWhenDone){
 		// anim 
 		
-		funcWhenDone ();
+		funcWhenDone();
 	}
 
 	public void BeginGettngHitAnimation(EventDelegate funcWhenDone){
@@ -151,7 +149,8 @@ public class Minion : MonoBehaviour {
 	public void BeginDecayingBodyAnimation(EventDelegate funcWhenDone){
 		// anim 
 		
-		funcWhenDone ();
+		funcWhenDone();
 	}
 
+*/
 }

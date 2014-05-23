@@ -28,11 +28,11 @@ public class MinionsMovement : MonoBehaviour {
 
 	Minion[] GetClosestMinions()
 	{
-		Minion[MAX_ATTACKING_MINIONS] squad;
+		Minion[] squad = new Minion[MAX_ATTACKING_MINIONS];
 		
 		Minion[] remainingActiveMinions;
 
-
+		return null;
 		
 		//GetPlayerPos;
 
