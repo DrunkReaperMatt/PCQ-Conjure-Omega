@@ -19,7 +19,7 @@ public class Borders : MonoBehaviour {
 		}
 
 		if(col.gameObject.tag == "minion"){
-			Physics.IgnoreCollision(col.transform.collider2D, collider2D);
+			Physics.IgnoreCollision(col.transform.collider2D.collider, collider);
 		}
 	}
 }
