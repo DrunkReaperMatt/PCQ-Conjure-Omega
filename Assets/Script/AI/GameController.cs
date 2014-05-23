@@ -22,15 +22,18 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine (SpawnWaves ());
+		//StartCoroutine (SpawnWaves ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
-
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.tag == "Player"){
+			StartCoroutine(SpawnWaves());
+		}
+	}
 
 
 	IEnumerator SpawnWaves ()
@@ -47,18 +50,16 @@ public class GameController : MonoBehaviour {
 				if (minionMaxCount - minions.Length < minionSpawnCount){
 					minionsToSpawn = minionMaxCount - minions.Length;
 				} 
-
 			}
 
-
-			for (int i = 0; i < minionsToSpawn; i++)
-			{
-				Vector2 spawnPosition = new Vector2 (defaultSpawnPosition.x, Random.Range (minYSpawnPistionMinion, maxYSpawnPistionMinion));
+			for (int i = 0; i < minionsToSpawn; i++){
+				Vector3 spawnPosition = new Vector3 (defaultSpawnPosition.x, Random.Range (minYSpawnPistionMinion, maxYSpawnPistionMinion), -4.1f);
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate (minionPrefab, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (minionSpawnWait);
 			}
 			yield return new WaitForSeconds (waveWait);
+			Destroy(gameObject);
 		}
 	}
 
