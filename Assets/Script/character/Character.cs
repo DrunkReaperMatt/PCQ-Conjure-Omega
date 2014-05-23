@@ -14,26 +14,22 @@ public class Character : MonoBehaviour
     {
         Idle,
         Walk,
-        Run,
-        Jump,
-        Crouch,
         Death,
         Spawn
     }
 
-    public int debugView_CharacterState { get { return (int)State; } }
-    public CharacterType characterType;
-    public float spawnTime = 3;
+    //public float spawnTime = 3;
     private CharacterState state;
 
-    public AudioSource audioJump;
+
     public AudioSource audioLanding;
     public AudioSource audioDiePick;
 
     private Movement movement;
     private Rigidbody2D rigidBody;
 
-    private WayPoint lastWayPoint;
+
+    //private WayPoint lastWayPoint;
     private float timer = 0;
 
     void Start()
@@ -46,30 +42,20 @@ public class Character : MonoBehaviour
     
     void Update()
     {
-        if (State == CharacterState.Death || State == CharacterState.Spawn) return; //
+        //if (State == CharacterState.Death || State == CharacterState.Spawn) return; //
 
-        if (movement.IsGrounded)
-        {
-            float velocityX = rigidBody.velocity.x;
-            if(velocityX > 0.05)
-            {
-                if(movement.IsRunning) { State = CharacterState.Run; }
-                else { State = CharacterState.Walk; }
-            }
-            else
-            {
-                State = CharacterState.Idle;
-            }
-        }
-        else
-        {
-            float velocityY = rigidBody.velocity.y;
-            
-            if(Math.Abs(velocityY) > 0.05)
-            {
-                State = CharacterState.Jump;
-            }
-        }
+		       
+	    float velocityX = rigidBody.velocity.x;
+			float velocityY = rigidBody.velocity.y;
+	    if ((velocityX > 0.05) || (velocityY > 0.05))
+	    {
+	       State = CharacterState.Walk;
+	    }
+	    else
+	    {
+	        State = CharacterState.Idle;
+	    }
+     
     }
     
     public CharacterState State
@@ -96,23 +82,10 @@ public class Character : MonoBehaviour
 
     public void Walk()
     {
+	
 
     }
 
-    public void Run()
-    {
-
-    }
-
-    public void InAir()
-    {
-
-    }
-
-    public void Crouch()
-    {
-
-    }
 
     public void Death()
     {
