@@ -32,6 +32,9 @@ public class Character : MonoBehaviour
     private bool canAttack;
     private bool canMove;
 
+	public float healt = 100;
+	public float HEALT_MAX = 100;
+
     //private WayPoint lastWayPoint;
     private float timer = 0;
 
