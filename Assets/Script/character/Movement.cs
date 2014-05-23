@@ -100,7 +100,7 @@ public class Movement : MonoBehaviour {
 
     }
 
-    private void InvertAxeY()
+    protected void InvertAxeY()
     {
 
         if (rotationY == 0) { rotationY = 180; }
@@ -108,7 +108,7 @@ public class Movement : MonoBehaviour {
     }
 
     // rotate based on direction and gravity
-    private void Rotate()
+	protected void Rotate()
     {
         rotationX = (GravityCheck() > 0 ? 0 : 180);
         transform.eulerAngles = new Vector2(rotationX, rotationY);

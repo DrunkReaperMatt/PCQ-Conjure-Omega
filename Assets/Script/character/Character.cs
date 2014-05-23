@@ -14,84 +14,117 @@ public class Character : MonoBehaviour
     {
         Idle,
         Walk,
+        AttackFast,
+        AttackStrong,
+        IsHit,
         Death,
-        Spawn
+        Spawn,
+        Invulnerable
     }
 
     //public float spawnTime = 3;
     private CharacterState state;
 
+    //private Movement movement;
+    private VitalStats vitals;
+    private Animator animator;
 
-    public AudioSource audioLanding;
-    public AudioSource audioDiePick;
-
-    private Movement movement;
-    private Rigidbody2D rigidBody;
-
-	public float healt = 100f;
-	public float HEALT_MAX = 100f;
-
+    private bool canAttack;
+    private bool canMove;
 
     //private WayPoint lastWayPoint;
     private float timer = 0;
 
     void Start()
     {
-        movement = GetComponent<Movement>();
-        rigidBody = GetComponent<Rigidbody2D>();
-        
-        //State = CharacterState.Spawn;
+        state = CharacterState.Spawn;
+        canAttack = false;
+        canMove = false;
+
+        //movement = GetComponent<Movement>();
+        vitals = GetComponent<VitalStats>();
+
+        State = CharacterState.IsHit;
     }
     
+    /*
     void Update()
     {
-        //if (State == CharacterState.Death || State == CharacterState.Spawn) return; //
-
-		       
-	    float velocityX = rigidBody.velocity.x;
-			float velocityY = rigidBody.velocity.y;
-	    if ((velocityX > 0.05) || (velocityY > 0.05))
-	    {
-	       State = CharacterState.Walk;
-	    }
-	    else
-	    {
-	        State = CharacterState.Idle;
-	    }
      
     }
-    
+    */
+   
     public CharacterState State
     {
         get { return state; }
-        set { 
+        set {
             if (value != this.state)
             {
                 state = value;
-                UpdateAnimation(this.state);
+                UpdateCharacter();
             } 
         }
     }
 
-    private void UpdateAnimation(CharacterState stateUpdate)
+    public void UpdateCharacter() 
     {
+        switch (state)
+        {
+            case CharacterState.Idle:
+                Idle();
+                break;
 
+            case CharacterState.Walk:
+                Walk();
+                break;
+
+            case CharacterState.AttackFast:
+                AttackFast();
+                break;
+
+            case CharacterState.AttackStrong:
+                AttackStrong();
+                break;
+
+            case CharacterState.IsHit:
+                IsHit();
+                break;
+
+            default:
+
+                break;
+        }
     }
 
     public void Idle()
     {
-
+        animation.CrossFade("Idle");
     }
 
     public void Walk()
     {
-	
-
+        animation.Play("Walk");
     }
 
+    public void AttackFast()
+    {
+        animation.Play("Attack");
+    }
+
+    public void AttackStrong()
+    {
+        animation.Play("Strong");
+    }
+
+    public void IsHit()
+    {
+        animation.Play();
+    }
 
     public void Death()
     {
+        animation.Play("Death");
+        /*
         if (timer != 0)
         {
             if (timer == Time.time)
@@ -104,24 +137,24 @@ public class Character : MonoBehaviour
         {
             timer = Time.time;
         }
-        
+        */
     }
 
     public void Spawn()
     {
+        animation.Play("Spawn");
+    }
+
+    public void ReceivingDamage(GameObject dealer, int damage)
+    {
 
     }
-    /*
-    void OnTriggerEnter2D(Collider2D other)
+
+    public void stillHasHealt()
     {
-        if (other.transform.GetComponent<WayPoint>() != null)
+        if (!vitals.HasHealt())
         {
-            lastWayPoint = other.transform.GetComponent<WayPoint>();
+
         }
-    }
-    */
-    public void OnBecameInvisible()
-    {
-        enabled = false;
     }
 }
