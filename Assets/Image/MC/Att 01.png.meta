@@ -1,0 +1,940 @@
+fileFormatVersion: 2
+guid: 4e65606f26cee424d95d55e4073550a7
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Att 01_0
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 6547
+        width: 401
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_1
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 6547
+        width: 400
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_2
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 6547
+        width: 398
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_3
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 6546
+        width: 395
+        height: 389
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_4
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 6546
+        width: 393
+        height: 389
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_5
+      rect:
+        serializedVersion: 2
+        x: 3440
+        y: 6545
+        width: 392
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_6
+      rect:
+        serializedVersion: 2
+        x: 4081
+        y: 6544
+        width: 390
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_7
+      rect:
+        serializedVersion: 2
+        x: 4721
+        y: 6543
+        width: 387
+        height: 391
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_8
+      rect:
+        serializedVersion: 2
+        x: 5360
+        y: 6542
+        width: 388
+        height: 392
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_9
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 5899
+        width: 386
+        height: 393
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_10
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 5899
+        width: 384
+        height: 393
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_11
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 5897
+        width: 382
+        height: 395
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_12
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 5896
+        width: 382
+        height: 396
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_13
+      rect:
+        serializedVersion: 2
+        x: 2779
+        y: 5896
+        width: 381
+        height: 396
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_14
+      rect:
+        serializedVersion: 2
+        x: 3418
+        y: 5894
+        width: 379
+        height: 398
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_15
+      rect:
+        serializedVersion: 2
+        x: 4056
+        y: 5894
+        width: 379
+        height: 398
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_16
+      rect:
+        serializedVersion: 2
+        x: 4686
+        y: 5894
+        width: 387
+        height: 398
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_17
+      rect:
+        serializedVersion: 2
+        x: 5315
+        y: 5894
+        width: 395
+        height: 397
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_18
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 5252
+        width: 406
+        height: 397
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_19
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 5256
+        width: 500
+        height: 393
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_20
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 5257
+        width: 505
+        height: 392
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_21
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 5258
+        width: 511
+        height: 391
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_22
+      rect:
+        serializedVersion: 2
+        x: 2620
+        y: 5258
+        width: 515
+        height: 391
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_23
+      rect:
+        serializedVersion: 2
+        x: 3259
+        y: 5258
+        width: 518
+        height: 391
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_24
+      rect:
+        serializedVersion: 2
+        x: 3897
+        y: 5259
+        width: 521
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_25
+      rect:
+        serializedVersion: 2
+        x: 4537
+        y: 5259
+        width: 523
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_26
+      rect:
+        serializedVersion: 2
+        x: 5177
+        y: 5259
+        width: 524
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_27
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 4611
+        width: 419
+        height: 396
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_28
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 4618
+        width: 526
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_29
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 4621
+        width: 504
+        height: 404
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_30
+      rect:
+        serializedVersion: 2
+        x: 2022
+        y: 4623
+        width: 472
+        height: 448
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_31
+      rect:
+        serializedVersion: 2
+        x: 2714
+        y: 4625
+        width: 426
+        height: 472
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_32
+      rect:
+        serializedVersion: 2
+        x: 3378
+        y: 4626
+        width: 409
+        height: 481
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_33
+      rect:
+        serializedVersion: 2
+        x: 4022
+        y: 4626
+        width: 410
+        height: 478
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_34
+      rect:
+        serializedVersion: 2
+        x: 4667
+        y: 4628
+        width: 411
+        height: 467
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_35
+      rect:
+        serializedVersion: 2
+        x: 5310
+        y: 4628
+        width: 413
+        height: 459
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_36
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 3968
+        width: 432
+        height: 398
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_37
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 3976
+        width: 530
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_38
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 3985
+        width: 413
+        height: 455
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_39
+      rect:
+        serializedVersion: 2
+        x: 2123
+        y: 3974
+        width: 405
+        height: 428
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_40
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 3974
+        width: 403
+        height: 416
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_41
+      rect:
+        serializedVersion: 2
+        x: 3413
+        y: 3974
+        width: 402
+        height: 400
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_42
+      rect:
+        serializedVersion: 2
+        x: 4058
+        y: 3973
+        width: 400
+        height: 384
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_43
+      rect:
+        serializedVersion: 2
+        x: 4702
+        y: 3971
+        width: 399
+        height: 383
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_44
+      rect:
+        serializedVersion: 2
+        x: 5347
+        y: 3971
+        width: 398
+        height: 381
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_45
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 3326
+        width: 443
+        height: 397
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_46
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 3334
+        width: 533
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_47
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 3340
+        width: 412
+        height: 455
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_48
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 3328
+        width: 395
+        height: 381
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_49
+      rect:
+        serializedVersion: 2
+        x: 2793
+        y: 3328
+        width: 406
+        height: 386
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_50
+      rect:
+        serializedVersion: 2
+        x: 3437
+        y: 3328
+        width: 414
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_51
+      rect:
+        serializedVersion: 2
+        x: 4079
+        y: 3328
+        width: 417
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_52
+      rect:
+        serializedVersion: 2
+        x: 4722
+        y: 3328
+        width: 415
+        height: 389
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_53
+      rect:
+        serializedVersion: 2
+        x: 5364
+        y: 3328
+        width: 415
+        height: 391
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_54
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 2685
+        width: 455
+        height: 396
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_55
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 2691
+        width: 539
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_56
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 2696
+        width: 411
+        height: 452
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_57
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 2685
+        width: 394
+        height: 381
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_58
+      rect:
+        serializedVersion: 2
+        x: 2796
+        y: 2688
+        width: 415
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_59
+      rect:
+        serializedVersion: 2
+        x: 3439
+        y: 2690
+        width: 415
+        height: 389
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_60
+      rect:
+        serializedVersion: 2
+        x: 4082
+        y: 2691
+        width: 414
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_61
+      rect:
+        serializedVersion: 2
+        x: 4724
+        y: 2691
+        width: 413
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_62
+      rect:
+        serializedVersion: 2
+        x: 5367
+        y: 2691
+        width: 412
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_63
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 2043
+        width: 464
+        height: 396
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_64
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 2050
+        width: 544
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_65
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 2053
+        width: 411
+        height: 449
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_66
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 2042
+        width: 392
+        height: 384
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_67
+      rect:
+        serializedVersion: 2
+        x: 2796
+        y: 2046
+        width: 415
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_68
+      rect:
+        serializedVersion: 2
+        x: 3441
+        y: 2050
+        width: 413
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_69
+      rect:
+        serializedVersion: 2
+        x: 4085
+        y: 2051
+        width: 409
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_70
+      rect:
+        serializedVersion: 2
+        x: 4727
+        y: 2051
+        width: 410
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_71
+      rect:
+        serializedVersion: 2
+        x: 5370
+        y: 2052
+        width: 409
+        height: 387
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_72
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 1402
+        width: 474
+        height: 395
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_73
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1408
+        width: 545
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_74
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 1408
+        width: 410
+        height: 445
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_75
+      rect:
+        serializedVersion: 2
+        x: 2147
+        y: 1400
+        width: 389
+        height: 384
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_76
+      rect:
+        serializedVersion: 2
+        x: 2797
+        y: 1405
+        width: 414
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_77
+      rect:
+        serializedVersion: 2
+        x: 3442
+        y: 1408
+        width: 412
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_78
+      rect:
+        serializedVersion: 2
+        x: 4087
+        y: 1410
+        width: 407
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_79
+      rect:
+        serializedVersion: 2
+        x: 4730
+        y: 1410
+        width: 404
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_80
+      rect:
+        serializedVersion: 2
+        x: 5372
+        y: 1410
+        width: 403
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_81
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 761
+        width: 484
+        height: 394
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_82
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 767
+        width: 538
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_83
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 765
+        width: 407
+        height: 441
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_84
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 757
+        width: 397
+        height: 386
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_85
+      rect:
+        serializedVersion: 2
+        x: 2797
+        y: 763
+        width: 414
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_86
+      rect:
+        serializedVersion: 2
+        x: 3442
+        y: 767
+        width: 412
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_87
+      rect:
+        serializedVersion: 2
+        x: 4087
+        y: 768
+        width: 407
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_88
+      rect:
+        serializedVersion: 2
+        x: 4730
+        y: 769
+        width: 402
+        height: 387
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_89
+      rect:
+        serializedVersion: 2
+        x: 5372
+        y: 769
+        width: 401
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_90
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 119
+        width: 492
+        height: 394
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_91
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 125
+        width: 526
+        height: 390
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_92
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 123
+        width: 406
+        height: 436
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_93
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 116
+        width: 402
+        height: 387
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_94
+      rect:
+        serializedVersion: 2
+        x: 2797
+        y: 122
+        width: 414
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_95
+      rect:
+        serializedVersion: 2
+        x: 3442
+        y: 125
+        width: 412
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_96
+      rect:
+        serializedVersion: 2
+        x: 4087
+        y: 127
+        width: 405
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_97
+      rect:
+        serializedVersion: 2
+        x: 4730
+        y: 127
+        width: 402
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+    - name: Att 01_98
+      rect:
+        serializedVersion: 2
+        x: 5372
+        y: 127
+        width: 402
+        height: 388
+      alignment: 7
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 
