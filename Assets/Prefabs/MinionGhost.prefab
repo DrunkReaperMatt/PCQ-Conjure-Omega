@@ -14,6 +14,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: MinionGhost
   m_TagString: minion
@@ -84,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DyingSound: {fileID: 8300000, guid: e092b0bc70419f54083571a5da6eb9b2, type: 3}
+  spawning: 0
   rotationSpeed: 3
   attackDamage: 10
   movementSpeed: 70
@@ -105,6 +107,17 @@ MonoBehaviour:
   vitalityMax: 20
   armorMax: 5
   armorAtStart: 0
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b6ee909ac6be74d869e25d261b1843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
