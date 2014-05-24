@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour {
 
 		//TODO: optional load screen? 
 
-		Application.LoadLevel ("scene");
+		Application.LoadLevel ("Cinematic_1");
 		CurrentGameState = enGameState.INGAME;
 
 	}
