@@ -39,14 +39,14 @@ public class HealtBarEnemy : MonoBehaviour {
 		
 		
 		//ajuste la longeur de la bar selon la quantité de vie qu'il reste
-		scaleX = ((float)player.GetCurrentHealth() / (float)player.startingHealth);
+		scaleX = ((float)player.GetComponent<VitalStats>().Vitality / (float)player.GetComponent<VitalStats>().vitalityMax);
 		
 		transform.localScale = new Vector3 (scaleX, scaleY, 0);
 
 		Debug.Log(scaleX);
 
-		if (Input.GetKey("l") && player.GetCurrentHealth()>0) { 
-			player.ReceiveDamage(1);
+		if (Input.GetKey("l") && player.GetComponent<VitalStats>().Vitality > 0) { 
+			player.GetComponent<VitalStats>().ReceiveDamage(1);
 
 		}
 				
