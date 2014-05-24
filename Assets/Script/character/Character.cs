@@ -75,7 +75,7 @@ public class Character : MonoBehaviour
                     state = value;
                     UpdateCharacter();
                 }
-                else  //else inutile ?
+                else 
                 {
                     if (value == CharacterState.Spawn) state = CharacterState.Spawn;
                 }
@@ -166,7 +166,7 @@ public class Character : MonoBehaviour
 
     public void IsHit()
     {
-       
+        anim.Play("Hit");
         StartCoroutine("ActionIsHit");
     }
 
@@ -230,9 +230,9 @@ public class Character : MonoBehaviour
             while (timer < ANIM_ATTACK)
             {
 				timer += Time.deltaTime;
-                if (timer > 0.7f && !attacked)
+                if (timer > 0.4f && !attacked)
                 {
-                    //DealDamage(1f, damageAttackStrong);
+                    DealDamage(2.2f, damageAttack);
                     attacked = true;
                 }
                 yield return new WaitForEndOfFrame();
@@ -261,7 +261,7 @@ public class Character : MonoBehaviour
             {
                 timer += Time.deltaTime;
                 if (timer > 0.7f && !attacked) {
-                    //DealDamage(1.2f, damageAttackStrong);
+                    DealDamage(2.8f, damageAttackStrong);
                     attacked = true;
                 }
                 yield return new WaitForEndOfFrame();
@@ -298,13 +298,19 @@ public class Character : MonoBehaviour
 
     public void DealDamage(float range, int damage )
     {
-        Collider[] hitColliders = Physics.OverlapSphere(new Vector2(transform.position.x + (-transform.localScale.x * range), transform.position.y), 1.5f);
-        int i = 0;
-        Debug.Log(hitColliders.Length);
-        while (i < hitColliders.Length)
+        
+        Collider2D[] hitColliders = Physics2D.OverlapAreaAll(
+                new Vector2(transform.position.x, transform.position.y + 1),
+                new Vector2(transform.position.x + range, transform.position.y - 1)
+        );
+
+        foreach (Collider2D collider in hitColliders)
         {
-            hitColliders[i].SendMessage("ApplyDamage", new DamageCounter(transform.root.gameObject,damage));
-            i++;
+
+            if (collider.tag == Tag.minion)
+            {
+                collider.SendMessage("ApplyDamage", new DamageCounter(gameObject, damage));
+            }
         }
     }
 }

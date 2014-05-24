@@ -38,22 +38,29 @@ public enum MinionAnimationState {
 
 public class Minion : MonoBehaviour {
 
+    private VitalStats vitals;
+    private Animator anim;
+
+    /*
 	public int startingHealth = 100; // maxHealth
 	public int startingArmor = 0; //Damage reduction, get higher to add challenge 
-	public int rotationSpeed = 3;
-	public int attackDamage = 10;
-	public float movementSpeed = 30;
-	public float minAttackDistance = 3.0f;
+	
+    */
+
+    public int rotationSpeed = 3;
+    public int attackDamage = 10;
+    public float movementSpeed = 30;
+    public float minAttackDistance = 3.0f;
 
 	//private delegate SetDeadState;
 
-	private int currentHealth;
 	private Movement MinionsMovement;   //memes mouvement que le player (cardinaux), pas de rage.
 	private MinionState currentState;  			//movement
 	private MinionAnimationState currentAnimationState; // animation
  	
 	private const int MIN_HEALTH_TO_RETREAT_UNDER_RAGE_STATE = 35; //percentage
 	private const int MIN_HEALTH_TO_RETREAT = 15;
+
 	private const float ANIM_ATTACK_TIME = 2.1f;
 	private const float ANIM_IDLE_TIME = 1.3f;
 
@@ -66,6 +73,7 @@ public class Minion : MonoBehaviour {
 	void Awake(){
 		currTransform = this.transform;
 		currRigidBody = this.rigidbody2D;
+
 	}
 
 	// Use this for initialization
@@ -73,17 +81,19 @@ public class Minion : MonoBehaviour {
 		currentState = MinionState.Spawning;
 		currentAnimationState = MinionAnimationState.Idling;
 
-		//optenir la référence vers l'objet player
+        vitals = GetComponent<VitalStats>();
+
+		//optenir la référence vers l'objet player > Mauvaise idée ...
 		playerTargetTransform = GameObject.FindWithTag ("Player").transform;
 
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
 
 
  
-	}		
+	}*/		
 
 	void FixedUpdate(){
 		MoveTowardPlayer();
@@ -93,11 +103,11 @@ public class Minion : MonoBehaviour {
 		}
 	}
 		                                        
-
+    /*
 	public int GetCurrentHealth() {
 		return currentHealth;
 	}
-
+    */
 	private void MoveTowardPlayer(){
 		//rotate toward player
 		//currTransform.rotation = Quaternion.Slerp(currTransform.rotation, Quaternion.LookRotation(playerTargetTransform.position - currTransform.position), rotationSpeed * Time.deltaTime 
@@ -117,23 +127,27 @@ public class Minion : MonoBehaviour {
 	}
 
 
-	public void ReceiveDamage(int dmg) {
- 		if ( currentState != MinionState.Dead ) {
- 			currentHealth -= dmg;
-			//Killing blow? set dying stage. 
-			if (IsDead()){
+    
 
-				BeginDyingAnimation();
+	public void ApplyDamage(DamageCounter dc ) {
+        Debug.Log("Touché -> " + dc.Damage + " <=> healt : " + vitals );
+ 		if ( currentState != MinionState.Dead ) {
+ 			vitals.ReceiveDamage(dc.Damage);
+			//Killing blow? set dying stage. 
+			if (!vitals.HasHealt()){
+                Destroy(gameObject);
+				//BeginDyingAnimation();
 			}
 			else if (shouldRetreat()){
 				SetRetreatingingState();
 			}
-		} 
+		}
 
 	}
 
+    // Deprecated
 	public bool IsDead(){
-		return GetCurrentHealth() <= 0;
+		return vitals.HasHealt();
 	}
 
 	private void SetRetreatingingState(){
@@ -149,7 +163,7 @@ public class Minion : MonoBehaviour {
 
 	public bool shouldRetreat() {
 		bool bshouldRetreat = false;
-		if ( (GetCurrentHealth() / startingHealth) * 100  < MIN_HEALTH_TO_RETREAT){	
+		if ( (vitals.Vitality / vitals.vitalityMax) * 100  < MIN_HEALTH_TO_RETREAT){	
 			bshouldRetreat = true;
 		}
 		//if ((GetCurrentHeat() / MaxHealth) * 100 < MIN_HEALTH_TO_RETREAT_UNDER_RAGE_STATE && PlayerInRageState()){	
