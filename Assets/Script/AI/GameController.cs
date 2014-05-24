@@ -35,7 +35,9 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		go.spawn = spawning;
+		if (go != null) {				
+				go.spawn = spawning;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
