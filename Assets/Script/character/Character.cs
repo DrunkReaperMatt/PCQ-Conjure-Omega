@@ -25,6 +25,8 @@ public class Character : MonoBehaviour
 	public AudioClip attackSound;
 	public AudioClip bleedingSound;
 	public AudioClip hittingSound;
+	public AudioClip dyingSound;
+	public AudioClip rageActivationSound;
 
 
     private CharacterState state;
@@ -181,6 +183,7 @@ public class Character : MonoBehaviour
 
     public void Die()
     {
+		AudioSource.PlayClipAtPoint (dyingSound, transform.position);
         canAttack = false;
         canMove = false;
         canBeHit = false;

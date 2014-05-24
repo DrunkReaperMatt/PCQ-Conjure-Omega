@@ -14,6 +14,7 @@ public class CameraControls : MonoBehaviour
     public bool tracking = true;
 
 	public Transform arrow;
+	TweenScale scale;
 	private Transform player;		// Reference to the player's transform.
 
 
@@ -22,7 +23,7 @@ public class CameraControls : MonoBehaviour
         // Setting up the reference.
         player = GameObject.FindGameObjectWithTag("Player").transform;
 		arrow = GameObject.FindGameObjectWithTag("Arrow").transform;
-		TweenScale scale = arrow.GetComponent<TweenScale>();
+		scale = arrow.GetComponent<TweenScale>();
 		scale.enabled = false;
     }
 
@@ -57,7 +58,7 @@ public class CameraControls : MonoBehaviour
 		
 		if(minions.Length == 0 && !tracking){
 			tracking = true;
-
+			StartCoroutine(PlayTween(3));
 		}
 	}
 
@@ -84,4 +85,11 @@ public class CameraControls : MonoBehaviour
         // Set the camera's position to the target position with the same z component.
         transform.position = new Vector3(targetX, targetY, transform.position.z);
     }
+
+	IEnumerator PlayTween(float waitTime){
+		scale.enabled = true;
+		yield return new WaitForSeconds(waitTime);
+		scale.enabled = false;
+		scale.transform.localScale = Vector3.zero;
+	}
 }
