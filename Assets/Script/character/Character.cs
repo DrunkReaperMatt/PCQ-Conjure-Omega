@@ -24,6 +24,8 @@ public class Character : MonoBehaviour
 
 	public AudioClip attackSound;
 	public AudioClip bleedingSound;
+	public AudioClip hittingSound;
+
 
     private CharacterState state;
 
@@ -254,10 +256,13 @@ public class Character : MonoBehaviour
 
     public IEnumerator ActionAttackStrong()
     {
+		//AudioSource audioSourceObject;
         if (canAttack)
         {
 			anim.Play("Strong");
+			//audioSourceObject = new AudioSource();
 			AudioSource.PlayClipAtPoint (attackSound, transform.position);
+
             float timer = 0f;
             bool attacked = false;
 
@@ -273,7 +278,7 @@ public class Character : MonoBehaviour
                 }
                 yield return new WaitForEndOfFrame();
             }
-
+			//GameObject.Destroy(audioSourceObject);
 			canAttack = true;
 			canMove = true;
             
@@ -318,6 +323,8 @@ public class Character : MonoBehaviour
 
             if (collider.tag == Tag.minion)
             {
+				AudioSource.PlayClipAtPoint (hittingSound, transform.position);
+
                 collider.SendMessage("ApplyDamage", new DamageCounter(gameObject, damage));
             }
         }
