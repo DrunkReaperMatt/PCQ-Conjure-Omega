@@ -22,7 +22,7 @@ public class Credits : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)   ) {
-			Application.LoadLevel ("Credits");
+			Application.LoadLevel ("menu_principal");
 		}
 	}
 

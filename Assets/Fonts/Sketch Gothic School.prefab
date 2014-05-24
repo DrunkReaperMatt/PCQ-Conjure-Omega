@@ -59,9 +59,9 @@ MonoBehaviour:
   mPixelSize: 1
   mSymbols: []
   mDynamicFont: {fileID: 12800000, guid: 3cb10316cc2fe2f4b829e203b61a2444, type: 3}
-  mDynamicFontSize: 88
+  mDynamicFontSize: 72
   mDynamicFontStyle: 0
-  mDynamicFontOffset: 59.59375
+  mDynamicFontOffset: 46.59375
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
