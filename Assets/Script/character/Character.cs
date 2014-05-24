@@ -311,6 +311,8 @@ public class Character : MonoBehaviour
                 new Vector2(transform.position.x + range, transform.position.y - 1)
         );
 
+        Debug.Log(hitColliders.Length);
+
         foreach (Collider2D collider in hitColliders)
         {
 
