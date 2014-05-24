@@ -45,6 +45,8 @@ public class Minion : MonoBehaviour {
 
 	public AudioClip DyingSound;
 
+	public bool spawning;
+
     /*
 	public int startingHealth = 100; // maxHealth
 	public int startingArmor = 0; //Damage reduction, get higher to add challenge 
@@ -92,6 +94,8 @@ public class Minion : MonoBehaviour {
 
 		//optenir la référence vers l'objet player > Mauvaise idée ...
 		playerTargetTransform = GameObject.FindWithTag ("Player").transform;
+
+		spawning = false;
 
 	}
 	
