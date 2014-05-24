@@ -154,8 +154,9 @@ public class Character : MonoBehaviour
     public void AttackFast()
     {
         Debug.Log(transform.position.x + "  <->  " + transform.position.y);
-        anim.Play("Hit");
+        anim.Play("Weak");
         StartCoroutine("ActionAttack");
+    
     }
 
     public void AttackStrong()
@@ -221,13 +222,17 @@ public class Character : MonoBehaviour
         if (canAttack)
         {
             float timer = 0f;
+            bool attacked = false;
 
             canAttack = canMove = false;
 
             while (timer < ANIM_ATTACK)
             {
-                timer += Time.deltaTime;
-                //if (timer == 0.5f) { DealDamage(1f, damageAttack); };
+                if (timer > 0.7f && !attacked)
+                {
+                    //DealDamage(1f, damageAttackStrong);
+                    attacked = true;
+                }
                 yield return new WaitForEndOfFrame();
             }
 
@@ -241,13 +246,17 @@ public class Character : MonoBehaviour
         if (canAttack)
         {
             float timer = 0f;
+            bool attacked = false;
 
             canAttack = canMove = false;
 
             while (timer < ANIM_STRONG)
             {
                 timer += Time.deltaTime;
-                //if (timer == 0.5f) { DealDamage(1.2f,damageAttackStrong); }
+                if (timer > 0.7f && !attacked) {
+                    //DealDamage(1.2f, damageAttackStrong);
+                    attacked = true;
+                }
                 yield return new WaitForEndOfFrame();
             }
 
