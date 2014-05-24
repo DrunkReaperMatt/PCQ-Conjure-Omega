@@ -327,9 +327,9 @@ public class Character : MonoBehaviour
         foreach (Collider2D collider in hitColliders)
         {
 
-            if (collider.tag == Tag.minion)
-            {
-                collider.SendMessage("ApplyDamage", new DamageCounter(gameObject, damage));
+			if (collider.tag == "minion" || collider.tag ==  "boss")
+			{
+				collider.SendMessage("ApplyDamage", new DamageCounter(gameObject, damage));
             }
         }
     }
