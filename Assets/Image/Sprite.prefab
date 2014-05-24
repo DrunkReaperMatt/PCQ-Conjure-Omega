@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: New Atlas
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,21 +38,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 3dcb6f32301b5fa448f22757f9ee8c44, type: 2}
+  material: {fileID: 2100000, guid: f298c1f6369f1634d8cc415c85d76d77, type: 2}
   mSprites:
-  - name: Fleche_1
+  - name: headshot
     x: 0
-    y: 127
-    width: 405
-    height: 385
+    y: 28
+    width: 255
+    height: 228
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 29
-    paddingRight: 46
-    paddingTop: 0
-    paddingBottom: 95
+    paddingLeft: 185
+    paddingRight: 200
+    paddingTop: 146
+    paddingBottom: 106
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

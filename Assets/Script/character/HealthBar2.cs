@@ -30,7 +30,7 @@ public class HealthBar2 : MonoBehaviour {
 
 		scaleX = 1f;
 		scaleY = 1;
-		//transform.localScale = new Vector3 (scaleX, scaleY, 0);
+		transform.localScale = new Vector3 (scaleX, scaleY, 0);
 
 	}
 	

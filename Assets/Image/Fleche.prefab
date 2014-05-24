@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: New Atlas
+  m_Name: Fleche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,86 +38,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: fb9c5668d83207a469bec7efe08d8498, type: 2}
+  material: {fileID: 2100000, guid: 9b64a300e0ba8b641bc4ad27a175f6ae, type: 2}
   mSprites:
-  - name: Scene_1
+  - name: Fleche_1
     x: 0
-    y: 3414
-    width: 1024
-    height: 682
+    y: 127
+    width: 405
+    height: 385
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
+    paddingLeft: 29
+    paddingRight: 46
     paddingTop: 0
-    paddingBottom: 0
-  - name: Scene_2
-    x: 2050
-    y: 3414
-    width: 1024
-    height: 682
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Scene_3
-    x: 0
-    y: 2048
-    width: 1024
-    height: 682
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Scene_4
-    x: 0
-    y: 1365
-    width: 1024
-    height: 682
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Scene_5
-    x: 0
-    y: 2731
-    width: 1024
-    height: 682
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Scene_6
-    x: 1025
-    y: 3414
-    width: 1024
-    height: 682
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingBottom: 95
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

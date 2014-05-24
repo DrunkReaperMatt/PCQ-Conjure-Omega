@@ -37,7 +37,7 @@ public class VitalStats : MonoBehaviour {
     public bool ReceiveDamage(int damage)
     {
         if (damage < 1) damage = 1; // Do not call ReceiveDamage if you dont actually want some blood to be shed
-        return ((vitality -= (damage - armor > 1 ? damage - armor : 1 )) > 0 ? true : false );
+        return ((vitality -= ((damage - armor > 1) ? damage - armor : 1 )) > 0 ? true : false );
     }
 
     public void GainHealt(int healt)
