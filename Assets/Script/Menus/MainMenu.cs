@@ -151,6 +151,13 @@ public class MainMenu : MonoBehaviour {
 		
 	}
 
+	void MenuShowCredits_onClick() {
+
+		Application.LoadLevel ("Credits");
+	}
+
+
+
 	void PauseGameAndShowMainMenu(){
 	
 		Time.timeScale = 0;

@@ -70,9 +70,16 @@ public class Character : MonoBehaviour
         set {
             if (value != this.state)
             {
-                state = value;
-                Debug.Log(state);
-                UpdateCharacter();
+                if(state != CharacterState.Death)
+                {
+                    state = value;
+                    UpdateCharacter();
+                }
+                else 
+                {
+                    if (value == CharacterState.Spawn) state = CharacterState.Spawn;
+                }
+                
             } 
         }
     }
@@ -146,13 +153,14 @@ public class Character : MonoBehaviour
 
     public void AttackFast()
     {
-        anim.Play("Attack");
+        
         StartCoroutine("ActionAttack");
+    
     }
 
     public void AttackStrong()
     {
-        anim.Play("Strong");
+        
         StartCoroutine("ActionAttackStrong");
     }
 
@@ -211,46 +219,66 @@ public class Character : MonoBehaviour
     {
         if (canAttack)
         {
-            float timer = 0f;
+			anim.Play("Weak");
 
-            canAttack = canMove = false;
+            float timer = 0f;
+            bool attacked = false;
+
+			canAttack = false;
+			canMove = false;
 
             while (timer < ANIM_ATTACK)
             {
-                timer += Time.deltaTime;
-                if (timer == 0.5f) { /*DealDamage(,);*/ };
+				timer += Time.deltaTime;
+                if (timer > 0.4f && !attacked)
+                {
+                    DealDamage(2.2f, damageAttack);
+                    attacked = true;
+                }
                 yield return new WaitForEndOfFrame();
             }
 
-            canAttack = canMove = true;
-            State = CharacterState.Idle;
+			canAttack = true;
+			canMove = true;
         }
+
+		State = CharacterState.Idle;
     }
 
     public IEnumerator ActionAttackStrong()
     {
         if (canAttack)
         {
-            float timer = 0f;
+			anim.Play("Strong");
 
-            canAttack = canMove = false;
+            float timer = 0f;
+            bool attacked = false;
+
+			canAttack = false;
+			canMove = false;
 
             while (timer < ANIM_STRONG)
             {
                 timer += Time.deltaTime;
-                //if (timer == 0.5f) { /*DealDamage(1,1);*/ }
+                if (timer > 0.7f && !attacked) {
+                    DealDamage(2.8f, damageAttackStrong);
+                    attacked = true;
+                }
                 yield return new WaitForEndOfFrame();
             }
 
-            canAttack = canMove = true;
-            State = CharacterState.Idle;
+			canAttack = true;
+			canMove = true;
+            
         }
+		State = CharacterState.Idle;
     }
 
     public IEnumerator ActionIsHit()
     {
         if (canBeHit)
         {
+
             float timer = 0f;
 
             canAttack = canMove = canBeHit = false;
@@ -263,18 +291,26 @@ public class Character : MonoBehaviour
 
             canAttack = canMove = canBeHit = true;
 
-            State = CharacterState.Idle;
+            
         }
+		State = CharacterState.Idle;
     }
 
     public void DealDamage(float range, int damage )
     {
-        Collider[] hitColliders = Physics.OverlapSphere(new Vector2(transform.position.x + (-transform.localScale.x * range), transform.position.y), 1.5f);
-        int i = 0;
-        while (i < hitColliders.Length)
+        
+        Collider2D[] hitColliders = Physics2D.OverlapAreaAll(
+                new Vector2(transform.position.x, transform.position.y + 1),
+                new Vector2(transform.position.x + range, transform.position.y - 1)
+        );
+
+        foreach (Collider2D collider in hitColliders)
         {
-            hitColliders[i].SendMessage("ApplyDamage", new DamageCounter(transform.root.gameObject,damage));
-            i++;
+
+            if (collider.tag == Tag.minion)
+            {
+                collider.SendMessage("ApplyDamage", new DamageCounter(gameObject, damage));
+            }
         }
     }
 }
