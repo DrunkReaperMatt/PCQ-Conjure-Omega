@@ -43,6 +43,8 @@ public class Minion : MonoBehaviour {
     private VitalStats vitals;
     private Animator anim;
 
+	public AudioClip DyingSound;
+
     /*
 	public int startingHealth = 100; // maxHealth
 	public int startingArmor = 0; //Damage reduction, get higher to add challenge 
@@ -315,6 +317,8 @@ public class Minion : MonoBehaviour {
         renderer.enabled = false;
 
         GameObject george = (GameObject)GameObject.Instantiate(bloody,transform.position,transform.rotation);
+
+		AudioSource.PlayClipAtPoint (DyingSound, transform.position);
 
         yield return new WaitForSeconds(2.5f);
 
