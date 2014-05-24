@@ -21,6 +21,10 @@ public class Character : MonoBehaviour
         Invulnerable
     }
 
+
+	public AudioClip attackSound;
+	public AudioClip bleedingSound;
+
     private CharacterState state;
 
     //private Movement movement;
@@ -59,6 +63,8 @@ public class Character : MonoBehaviour
         anim = GetComponent<Animator>();
 
         State = CharacterState.Spawn;
+
+
 
     }
 
@@ -167,6 +173,7 @@ public class Character : MonoBehaviour
     public void IsHit()
     {
         anim.Play("Hit");
+		AudioSource.PlayClipAtPoint (bleedingSound, transform.position);
         StartCoroutine("ActionIsHit");
     }
 
@@ -220,7 +227,7 @@ public class Character : MonoBehaviour
         if (canAttack)
         {
 			anim.Play("Weak");
-
+			AudioSource.PlayClipAtPoint (attackSound, transform.position);
             float timer = 0f;
             bool attacked = false;
 
@@ -250,7 +257,7 @@ public class Character : MonoBehaviour
         if (canAttack)
         {
 			anim.Play("Strong");
-
+			AudioSource.PlayClipAtPoint (attackSound, transform.position);
             float timer = 0f;
             bool attacked = false;
 
