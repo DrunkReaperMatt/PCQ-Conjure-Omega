@@ -103,7 +103,7 @@ public class Minion : MonoBehaviour {
 		//currTransform.rotation = Quaternion.Slerp(currTransform.rotation, Quaternion.LookRotation(playerTargetTransform.position - currTransform.position), rotationSpeed * Time.deltaTime 
 
 		//dont rotate clockwise/anticw
-		currTransform.rotation = new Quaternion (0, 0, 0,0); 
+		currTransform.rotation = new Quaternion (0, 0, 0, 0); 
 
 			//move toward player
 		Vector3 direction = new Vector3 ( Mathf.Round(currTransform.position.x) > Mathf.Round(playerTargetTransform.position.x) ? -1:1, 

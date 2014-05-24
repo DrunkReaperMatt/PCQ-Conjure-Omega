@@ -70,9 +70,16 @@ public class Character : MonoBehaviour
         set {
             if (value != this.state)
             {
-                state = value;
-                Debug.Log(state);
-                UpdateCharacter();
+                if(state != CharacterState.Death)
+                {
+                    state = value;
+                    UpdateCharacter();
+                }
+                else
+                {
+                    if (value == CharacterState.Spawn) state = CharacterState.Spawn;
+                }
+                
             } 
         }
     }
@@ -146,12 +153,15 @@ public class Character : MonoBehaviour
 
     public void AttackFast()
     {
-        anim.Play("Attack");
+        Debug.Log(transform.position.x + "  <->  " + transform.position.y);
+        anim.Play("Weak");
         StartCoroutine("ActionAttack");
+    
     }
 
     public void AttackStrong()
     {
+        Debug.Log(transform.position.x + "  <->  " + transform.position.y);
         anim.Play("Strong");
         StartCoroutine("ActionAttackStrong");
     }
@@ -212,13 +222,17 @@ public class Character : MonoBehaviour
         if (canAttack)
         {
             float timer = 0f;
+            bool attacked = false;
 
             canAttack = canMove = false;
 
             while (timer < ANIM_ATTACK)
             {
-                timer += Time.deltaTime;
-                if (timer == 0.5f) { /*DealDamage(,);*/ };
+                if (timer > 0.7f && !attacked)
+                {
+                    //DealDamage(1f, damageAttackStrong);
+                    attacked = true;
+                }
                 yield return new WaitForEndOfFrame();
             }
 
@@ -232,13 +246,17 @@ public class Character : MonoBehaviour
         if (canAttack)
         {
             float timer = 0f;
+            bool attacked = false;
 
             canAttack = canMove = false;
 
             while (timer < ANIM_STRONG)
             {
                 timer += Time.deltaTime;
-                //if (timer == 0.5f) { /*DealDamage(1,1);*/ }
+                if (timer > 0.7f && !attacked) {
+                    //DealDamage(1.2f, damageAttackStrong);
+                    attacked = true;
+                }
                 yield return new WaitForEndOfFrame();
             }
 
@@ -271,6 +289,7 @@ public class Character : MonoBehaviour
     {
         Collider[] hitColliders = Physics.OverlapSphere(new Vector2(transform.position.x + (-transform.localScale.x * range), transform.position.y), 1.5f);
         int i = 0;
+        Debug.Log(hitColliders.Length);
         while (i < hitColliders.Length)
         {
             hitColliders[i].SendMessage("ApplyDamage", new DamageCounter(transform.root.gameObject,damage));
