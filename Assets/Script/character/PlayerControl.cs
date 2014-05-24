@@ -55,8 +55,8 @@ public class PlayerControl : MonoBehaviour {
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
 
-			Boolean attackRapide = Input.GetButton("Fire1");
-			Boolean attackForte = Input.GetButton("Fire2");
+			Boolean attackRapide = Input.GetKey (keyAttack);// Input.GetButton("Fire1");
+			Boolean attackForte = Input.GetKey (keyAttackStrong);
 			//Boolean activateRage = Input.GetButton("Fire3");
 
             if (x < 0.2 && x > -0.2) x = 0;

@@ -75,7 +75,7 @@ public class Character : MonoBehaviour
                     state = value;
                     UpdateCharacter();
                 }
-                else
+                else  //else inutile ?
                 {
                     if (value == CharacterState.Spawn) state = CharacterState.Spawn;
                 }
@@ -154,7 +154,7 @@ public class Character : MonoBehaviour
     public void AttackFast()
     {
         Debug.Log(transform.position.x + "  <->  " + transform.position.y);
-        anim.Play("Weak");
+        
         StartCoroutine("ActionAttack");
     
     }
@@ -162,13 +162,13 @@ public class Character : MonoBehaviour
     public void AttackStrong()
     {
         Debug.Log(transform.position.x + "  <->  " + transform.position.y);
-        anim.Play("Strong");
+        
         StartCoroutine("ActionAttackStrong");
     }
 
     public void IsHit()
     {
-        anim.Play("Hit");
+       
         StartCoroutine("ActionIsHit");
     }
 
@@ -221,13 +221,17 @@ public class Character : MonoBehaviour
     {
         if (canAttack)
         {
+			anim.Play("Weak");
+
             float timer = 0f;
             bool attacked = false;
 
-            canAttack = canMove = false;
+			canAttack = false;
+			canMove = false;
 
             while (timer < ANIM_ATTACK)
             {
+				timer += Time.deltaTime;
                 if (timer > 0.7f && !attacked)
                 {
                     //DealDamage(1f, damageAttackStrong);
@@ -236,19 +240,24 @@ public class Character : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
 
-            canAttack = canMove = true;
-            State = CharacterState.Idle;
+			canAttack = true;
+			canMove = true;
         }
+
+		State = CharacterState.Idle;
     }
 
     public IEnumerator ActionAttackStrong()
     {
         if (canAttack)
         {
+			anim.Play("Strong");
+
             float timer = 0f;
             bool attacked = false;
 
-            canAttack = canMove = false;
+			canAttack = false;
+			canMove = false;
 
             while (timer < ANIM_STRONG)
             {
@@ -260,15 +269,19 @@ public class Character : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
 
-            canAttack = canMove = true;
-            State = CharacterState.Idle;
+			canAttack = true;
+			canMove = true;
+            
         }
+		State = CharacterState.Idle;
     }
 
     public IEnumerator ActionIsHit()
     {
         if (canBeHit)
         {
+			anim.Play("Hit");
+
             float timer = 0f;
 
             canAttack = canMove = canBeHit = false;
@@ -281,8 +294,9 @@ public class Character : MonoBehaviour
 
             canAttack = canMove = canBeHit = true;
 
-            State = CharacterState.Idle;
+            
         }
+		State = CharacterState.Idle;
     }
 
     public void DealDamage(float range, int damage )
