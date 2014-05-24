@@ -11,19 +11,19 @@ public class RageBar2 : MonoBehaviour {
 	private float scaleY;
 	private float scaleX;
 	
-	private float positionX;
-	private float positionY;
+	public float positionX;
+	public float positionY;
 	
 	// Use this for initialization
 	void Start () {
 		go = GameObject.FindGameObjectWithTag("Player");
 		player = go.GetComponent<VitalStats> ();
 		
-		positionX = -250;
-		positionY = 220;
+		positionX = transform.position.x;
+		positionY = transform.position.y;
 		
 		
-		transform.localPosition = new Vector3(positionX, positionY, 0);
+		//transform.localPosition = new Vector3(positionX, positionY, 0);
 
 		scaleX = 0f;
 

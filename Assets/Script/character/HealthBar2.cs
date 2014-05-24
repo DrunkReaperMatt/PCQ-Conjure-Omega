@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class HealtBar2 : MonoBehaviour {
+public class HealthBar2 : MonoBehaviour {
 
 
 	public VitalStats player;
@@ -11,8 +11,8 @@ public class HealtBar2 : MonoBehaviour {
 	private float scaleY;
 	private float scaleX;
 
-	private float positionX;
-	private float positionY;
+	public float positionX;
+	public float positionY;
 
 	// Use this for initialization
 	void Start () {
@@ -21,16 +21,16 @@ public class HealtBar2 : MonoBehaviour {
 		player = go.GetComponent<VitalStats> ();
 
 
-		positionX = -250;
-		positionY = 250;
+		positionX = transform.position.x;
+		positionY = transform.position.y;
 
 
-		transform.localPosition = new Vector3(positionX, positionY, 0);
+		//transform.localPosition = new Vector3(positionX, positionY, 0);
 
 
 		scaleX = 1f;
 		scaleY = 1;
-		transform.localScale = new Vector3 (scaleX, scaleY, 0);
+		//transform.localScale = new Vector3 (scaleX, scaleY, 0);
 
 	}
 	
