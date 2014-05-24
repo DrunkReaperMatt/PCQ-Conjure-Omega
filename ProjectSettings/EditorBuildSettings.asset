@@ -10,7 +10,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scene/scene.unity
   - enabled: 1
-    path: Assets/Scene/Main/7 - Trahison.unity
+    path: Assets/Scene/Main/Main.unity
   - enabled: 1
     path: Assets/Scene/Menus/Credits.unity
   - enabled: 1

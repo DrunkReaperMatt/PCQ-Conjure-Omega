@@ -47,6 +47,8 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		//dirty fix  de la rotation lors de colision des sprite. pas de rotation horaire!
+		this.transform.rotation = new Quaternion (this.transform.rotation.x, 0, 0, 0);
 		Movement ();
 	}
 
