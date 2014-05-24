@@ -22,7 +22,7 @@ function DestroyNextSlide(){
 	Destroy(GameObject.FindWithTag("s" + (++compteur)));
 	
 	if(compteur == nbSlides) {
-		Application.LoadLevel("7 - Trahison");
+		Application.LoadLevel("Main");
 	
 	}
 }
