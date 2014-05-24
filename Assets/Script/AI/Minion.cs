@@ -106,6 +106,9 @@ public class Minion : MonoBehaviour {
 			BeginAttackingAnimation();
 
 		}
+		else{
+			BeginIdlingAnimation();
+		}
 	}
 		                                        
     /*
@@ -227,17 +230,24 @@ public class Minion : MonoBehaviour {
 	#region Idling
 	public void BeginIdlingAnimation( ){
 			// anim 
-		currentAnimationState = MinionAnimationState.Idling;
 
-		if (this.tag == "minion") 
+
+		if (this.tag == Tag.minion) 
 		{
-			anim.Play("Ghost_Idle");
+			anim.Play("Idle");
 		}
-		if (this.tag == "boss") 
+/*		if (this.tag == "boss") 
 		{
 			anim.Play("Eye_Idle");
 		}
-		StartCoroutine (EndIdlingAnimation());
+
+*/
+		if (currentAnimationState == MinionAnimationState.None) {
+					
+			currentAnimationState = MinionAnimationState.Idling;
+			StartCoroutine (EndIdlingAnimation());
+
+		}
 
 	}
 	public  IEnumerator EndIdlingAnimation( ){
@@ -252,17 +262,21 @@ public class Minion : MonoBehaviour {
 		// anim 
 		Debug.Log ("CAN ATTACK!");
 
-		currentAnimationState = MinionAnimationState.Attacking;
 
-		if (this.tag == "minion") 
+
+		if (this.tag == Tag.minion) 
 		{
-			anim.Play("Ghost_Attack");
+			anim.Play("Attack");
 		}
-		if (this.tag == "boss") 
+		/*if (this.tag == "boss") 
 		{
 			anim.Play("Eye_Attack");
 		}
-		StartCoroutine (EndAttackingAnimation());
+		 */
+		if (currentAnimationState == MinionAnimationState.None) {
+				currentAnimationState = MinionAnimationState.Attacking;
+				StartCoroutine (EndAttackingAnimation ());
+		}
 
 }
 	public  IEnumerator EndAttackingAnimation( ){
