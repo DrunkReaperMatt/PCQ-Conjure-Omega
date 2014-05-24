@@ -308,12 +308,12 @@ public class Character : MonoBehaviour
             anim.Play(null);
             gameObject.renderer.enabled = false;
 
-            GameObject george = (GameObject) GameObject.Instantiate(bloody);
-            george.transform.position = transform.position;
+            GameObject george = (GameObject) GameObject.Instantiate(bloody,transform.position,transform.rotation);
             
-            yield return new WaitForSeconds(1.4f);
+            yield return new WaitForSeconds(2.5f);
 
             GameObject.Destroy(george);
+            GameObject.Destroy(gameObject);
     }
 
     public void DealDamage(float range, int damage )
