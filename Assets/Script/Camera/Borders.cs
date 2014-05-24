@@ -20,7 +20,7 @@ public class Borders : MonoBehaviour {
 
 		if(col.gameObject.tag == "minion"){
 			Debug.Log("Patate");
-			col.gameObject.layer = 2;
+			Physics2D.IgnoreLayerCollision(0, 9, true);
 		}
 	}
 }

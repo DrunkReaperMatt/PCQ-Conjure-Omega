@@ -166,7 +166,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 920108501}
   m_GameObject: {fileID: 30022323}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 68255f862f80d844aa5b09be403bebe5, type: 2}
   m_CullingMode: 0
@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 920108501}
   m_GameObject: {fileID: 30022323}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: -173.950958, y: -2.16759348, z: -4.0999999}
+  m_LocalPosition: {x: -166.193665, y: -1.79819942, z: -4.0999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -235,7 +235,7 @@ Transform:
   m_GameObject: {fileID: 171765936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 265.100006, y: 12.1000004, z: 1}
+  m_LocalScale: {x: 265.100006, y: 13.9149876, z: 1}
   m_Children: []
   m_Father: {fileID: 1498126153}
 --- !u!23 &171765938
@@ -349,11 +349,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
+  near clip plane: .0299999993
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -369,7 +369,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 315408316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -159.759491, y: 0, z: -10}
+  m_LocalPosition: {x: -162.252899, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2085423241}
@@ -393,7 +393,7 @@ MonoBehaviour:
   xPosOffset: 5
   yPosOffset: 0
   maxXAndY: {x: 85, y: 0}
-  minXAndY: {x: -163, y: 0}
+  minXAndY: {x: -165, y: 0}
   tracking: 1
 --- !u!1 &362005477
 GameObject:
@@ -421,7 +421,7 @@ Transform:
   m_GameObject: {fileID: 362005477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -3}
-  m_LocalScale: {x: 265.100006, y: 12.1000004, z: 1}
+  m_LocalScale: {x: 265.100006, y: 16.9399967, z: 1}
   m_Children: []
   m_Father: {fileID: 1498126153}
 --- !u!114 &362005479
@@ -516,7 +516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minionPrefab: {fileID: 100000, guid: 91a4f2013471da149af80ac92975c83a, type: 2}
-  defaultSpawnPosition: {x: 0, y: 0}
+  tracking: {fileID: 0}
+  defaultSpawnPosition: {x: -100, y: -1.20000005}
   minYSpawnPistionMinion: 0
   maxYSpawnPistionMinion: 0
   minionSpawnCount: 2
@@ -549,7 +550,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 830753087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: -.870262146, z: -3}
   m_LocalScale: {x: 265.100006, y: 12.1000004, z: 1}
   m_Children: []
   m_Father: {fileID: 1498126153}
@@ -603,11 +604,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: ffe272079b3e4dc438caf4edb0e1495d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -173.950958
+      value: -166.193665
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ffe272079b3e4dc438caf4edb0e1495d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.16759348
+      value: -1.79819942
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ffe272079b3e4dc438caf4edb0e1495d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -628,6 +629,10 @@ Prefab:
     - target: {fileID: 400000, guid: ffe272079b3e4dc438caf4edb0e1495d, type: 2}
       propertyPath: m_LocalRotation.w
       value: -4.37113883e-08
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: ffe272079b3e4dc438caf4edb0e1495d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffe272079b3e4dc438caf4edb0e1495d, type: 2}
@@ -687,7 +692,7 @@ Transform:
   m_GameObject: {fileID: 1437988887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -3}
-  m_LocalScale: {x: 265.100006, y: 12.1000004, z: 1}
+  m_LocalScale: {x: 265.100006, y: 17.0912457, z: 1}
   m_Children: []
   m_Father: {fileID: 1498126153}
 --- !u!114 &1437988889
@@ -771,6 +776,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1522128068}
   - 61: {fileID: 1522128069}
+  - 114: {fileID: 1522128070}
   m_Layer: 0
   m_Name: Wall R
   m_TagString: Untagged
@@ -799,7 +805,18 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: 9.99999975e-05, y: 18.2900009}
-  m_Center: {x: 14.1499996, y: -.0600004196}
+  m_Center: {x: 9.75, y: -.0600004196}
+--- !u!114 &1522128070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1522128067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0052326238779104d9e9c638788fdc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2068767966
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +882,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2068767966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4}
+  m_LocalPosition: {x: 0, y: -.900699615, z: -4}
   m_LocalScale: {x: -177.779999, y: 12.0749941, z: 1}
   m_Children: []
   m_Father: {fileID: 1498126153}
@@ -889,6 +906,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2085423241}
   - 61: {fileID: 2085423242}
+  - 114: {fileID: 2085423243}
   m_Layer: 0
   m_Name: Wall L
   m_TagString: Untagged
@@ -917,4 +935,15 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: 9.99999975e-05, y: 18.2900009}
-  m_Center: {x: -14.1499996, y: -.0600004196}
+  m_Center: {x: -9.75, y: -.0600004196}
+--- !u!114 &2085423243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2085423240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0052326238779104d9e9c638788fdc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

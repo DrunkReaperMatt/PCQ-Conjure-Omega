@@ -23,8 +23,8 @@ public class controller : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.tag == "Trigger")
 		{
-			bool track = camera.GetComponent<CameraControls>().tracking;
-			camera.GetComponent<CameraControls>().tracking = ( track == true) ? false : true;
+			CameraControls track = camera.GetComponent<CameraControls>();
+
 		}
 	}
 }

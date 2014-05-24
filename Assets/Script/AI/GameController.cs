@@ -9,6 +9,8 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 
 	public GameObject minionPrefab;
+	private GameObject camera;
+	public CameraControls tracking;
 	public Vector2 defaultSpawnPosition;  // defaut y range middel of simulated 2d floor;
 	public float minYSpawnPistionMinion, maxYSpawnPistionMinion;
 	public int minionSpawnCount;
@@ -23,6 +25,8 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//StartCoroutine (SpawnWaves ());
+		camera = GameObject.FindGameObjectWithTag("MainCamera");
+		tracking = camera.GetComponent<CameraControls>();
 	}
 	
 	// Update is called once per frame
@@ -30,8 +34,9 @@ public class GameController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if (col.tag == "Player"){
+		if (col.tag == "Player" && tracking.tracking){
 			StartCoroutine(SpawnWaves());
+			tracking.tracking = false;
 		}
 	}
 
