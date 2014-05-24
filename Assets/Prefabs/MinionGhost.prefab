@@ -13,6 +13,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
   - 95: {fileID: 9500000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: MinionGhost
   m_TagString: minion
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -169, y: -1.00999999, z: -4.0999999}
+  m_LocalPosition: {x: -153.399994, y: -1.00999999, z: -4.0999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,10 +83,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d847bf5d3ad9f4eb10e91ebd044d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DyingSound: {fileID: 8300000, guid: e092b0bc70419f54083571a5da6eb9b2, type: 3}
   rotationSpeed: 3
   attackDamage: 10
-  movementSpeed: 100
+  movementSpeed: 70
   minAttackDistance: 3
+  bloody: {fileID: 100002, guid: e88119df2ca9dfc4eac1b954d61403bb, type: 2}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae609f4f0cf83f84097ca2da051660a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rageMax: 100
+  rageModeTreshold: 50
+  vitalityMax: 20
+  armorMax: 5
+  armorAtStart: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

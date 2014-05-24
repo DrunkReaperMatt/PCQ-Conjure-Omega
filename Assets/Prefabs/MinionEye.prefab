@@ -13,9 +13,10 @@ GameObject:
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
   - 95: {fileID: 9500000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: MinionEye
-  m_TagString: boss
+  m_TagString: minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,10 +83,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d847bf5d3ad9f4eb10e91ebd044d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DyingSound: {fileID: 8300000, guid: 4c97e122d673143438e407f4f88686b1, type: 3}
   rotationSpeed: 3
   attackDamage: 10
   movementSpeed: 100
   minAttackDistance: 3
+  bloody: {fileID: 100002, guid: e88119df2ca9dfc4eac1b954d61403bb, type: 2}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae609f4f0cf83f84097ca2da051660a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rageMax: 100
+  rageModeTreshold: 50
+  vitalityMax: 100
+  armorMax: 5
+  armorAtStart: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

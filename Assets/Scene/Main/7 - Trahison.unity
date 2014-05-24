@@ -84,10 +84,12 @@ GameObject:
   - 4: {fileID: 30022330}
   - 212: {fileID: 30022329}
   - 95: {fileID: 30022328}
+  - 61: {fileID: 30022325}
+  - 114: {fileID: 30022333}
+  - 114: {fileID: 30022332}
+  - 114: {fileID: 30022324}
   - 114: {fileID: 30022327}
   - 50: {fileID: 30022326}
-  - 61: {fileID: 30022325}
-  - 114: {fileID: 30022324}
   - 114: {fileID: 30022331}
   m_Layer: 0
   m_Name: Ego
@@ -105,11 +107,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 30022323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a6afc45054f8a4fad218e6df8b2428, type: 3}
+  m_Script: {fileID: 11500000, guid: c63a8da5857767a44ad0fd6b50d65a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  camera: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 5c4ea00585c858a4da0f2ad5dca7b9c3, type: 3}
+  bleedingSound: {fileID: 8300000, guid: 58a53d18fda2dbf4b89f0e6c659e34d8, type: 3}
+  hittingSound: {fileID: 8300000, guid: c4ba05d1e3f1c1948a60109e91c10038, type: 3}
+  damageAttack: 20
+  damageAttackStrong: 50
+  rageMultiplier: 1.5
 --- !u!61 &30022325
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,20 +151,20 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 920108501}
   m_GameObject: {fileID: 30022323}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ece66159c5fa0a243be57bb929ae7d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useGamePad: 1
+  useGamePad: 0
   gamePadNumber: 1
   keyUp: 119
   keyDown: 115
-  keyRight: 100
-  keyLeft: 97
-  keyAttack: 0
-  keyAttackStrong: 0
-  keyMove: 32
+  keyRight: 97
+  keyLeft: 100
+  keyAttack: 256
+  keyAttackStrong: 257
+  keyMove: 0
 --- !u!95 &30022328
 Animator:
   serializedVersion: 2
@@ -225,6 +231,36 @@ MonoBehaviour:
   vitalityMax: 100
   armorMax: 5
   armorAtStart: 0
+--- !u!114 &30022332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: ffe272079b3e4dc438caf4edb0e1495d,
+    type: 2}
+  m_PrefabInternal: {fileID: 920108501}
+  m_GameObject: {fileID: 30022323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6141a93dd7b20340bec227622818aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 3
+--- !u!114 &30022333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: ffe272079b3e4dc438caf4edb0e1495d,
+    type: 2}
+  m_PrefabInternal: {fileID: 920108501}
+  m_GameObject: {fileID: 30022323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae609f4f0cf83f84097ca2da051660a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rageMax: 100
+  rageModeTreshold: 50
+  vitalityMax: 100
+  armorMax: 5
+  armorAtStart: 0
 --- !u!1001 &71216568
 Prefab:
   m_ObjectHideFlags: 0
@@ -262,11 +298,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ad94c929207e37f4f93ee22e2a2a6272, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -88.5255356
+      value: -88.5257721
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ad94c929207e37f4f93ee22e2a2a6272, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -97.2179642
+      value: -81.3205795
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: ad94c929207e37f4f93ee22e2a2a6272, type: 2}
       propertyPath: m_Name
@@ -330,15 +366,15 @@ Prefab:
       objectReference: {fileID: 799782938}
     - target: {fileID: 400000, guid: ad94c929207e37f4f93ee22e2a2a6272, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00308641978
+      value: .00222965446
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ad94c929207e37f4f93ee22e2a2a6272, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00308641978
+      value: .00222965446
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ad94c929207e37f4f93ee22e2a2a6272, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00308641978
+      value: .00222965446
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ad94c929207e37f4f93ee22e2a2a6272, type: 2}
       propertyPath: m_LocalPosition.z
@@ -559,17 +595,17 @@ MonoBehaviour:
   widgetsAreStatic: 0
   cullWhileDragging: 0
   worldToLocal:
-    e00: 40.5
+    e00: 56.0625
     e01: 0
     e02: 0
-    e03: 7628.12891
+    e03: 10540.498
     e10: 0
-    e11: 41.5384598
+    e11: 57.4999962
     e12: 0
-    e13: -1038.41528
+    e13: -1393.45117
     e20: 0
     e21: 0
-    e22: 324
+    e22: 448.5
     e23: -1.00854492
     e30: 0
     e31: 0
@@ -603,7 +639,7 @@ Transform:
   m_PrefabInternal: {fileID: 71216568}
   m_GameObject: {fileID: 225530216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -88.5255356, y: -97.2179642, z: 0}
+  m_LocalPosition: {x: -88.5257721, y: -81.3205795, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 210460704}
@@ -889,6 +925,7 @@ MonoBehaviour:
   maxXAndY: {x: 85, y: .699999988}
   minXAndY: {x: -155, y: .699999988}
   tracking: 1
+  arrow: {fileID: 0}
 --- !u!1 &362005477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1193,7 @@ Transform:
   m_GameObject: {fileID: 799782938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -187.140137, y: 21.2472286, z: 0}
-  m_LocalScale: {x: .00308641978, y: .00308641978, z: .00308641978}
+  m_LocalScale: {x: .00222965446, y: .00222965446, z: .00222965446}
   m_Children:
   - {fileID: 455301907}
   m_Father: {fileID: 0}
@@ -1176,17 +1213,17 @@ MonoBehaviour:
   widgetsAreStatic: 0
   cullWhileDragging: 0
   worldToLocal:
-    e00: 324
+    e00: 448.5
     e01: 0
     e02: 0
-    e03: 60633.4062
+    e03: 83932.3516
     e10: 0
-    e11: 324
+    e11: 448.5
     e12: 0
-    e13: -6884.10205
+    e13: -9529.38184
     e20: 0
     e21: 0
-    e22: 324
+    e22: 448.5
     e23: 0
     e30: 0
     e31: 0
