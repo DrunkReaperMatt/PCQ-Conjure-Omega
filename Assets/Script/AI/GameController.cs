@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//StartCoroutine (SpawnWaves ());
+		StartCoroutine (SpawnWaves ());
 	}
 	
 	// Update is called once per frame
@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour {
 			}
 
 			for (int i = 0; i < minionsToSpawn; i++){
-				Vector3 spawnPosition = new Vector3 (defaultSpawnPosition.x, Random.Range (minYSpawnPistionMinion, maxYSpawnPistionMinion), -4.1f);
+				Vector3 spawnPosition = new Vector3 (  GameObject.FindWithTag("Player").transform.position.x + 10 , Random.Range (minYSpawnPistionMinion, maxYSpawnPistionMinion), -4.1f);
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate (minionPrefab, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (minionSpawnWait);

@@ -19,7 +19,7 @@ public class Borders : MonoBehaviour {
 		}
 
 		if(col.gameObject.tag == "minion"){
-			col.gameObject.layer = 1
+			col.gameObject.layer = 1;
 		}
 	}
 }
