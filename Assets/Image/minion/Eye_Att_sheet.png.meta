@@ -1,0 +1,904 @@
+fileFormatVersion: 2
+guid: b189f37d80020f249a1613b74f772953
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: EnnemiFaible_Att.mp4319
+      rect:
+        serializedVersion: 2
+        x: 4412
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4320
+      rect:
+        serializedVersion: 2
+        x: 4412
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4321
+      rect:
+        serializedVersion: 2
+        x: 4412
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4322
+      rect:
+        serializedVersion: 2
+        x: 4097
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4323
+      rect:
+        serializedVersion: 2
+        x: 4097
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4324
+      rect:
+        serializedVersion: 2
+        x: 4727
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4325
+      rect:
+        serializedVersion: 2
+        x: 4412
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4326
+      rect:
+        serializedVersion: 2
+        x: 4097
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4327
+      rect:
+        serializedVersion: 2
+        x: 3782
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4328
+      rect:
+        serializedVersion: 2
+        x: 3782
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4329
+      rect:
+        serializedVersion: 2
+        x: 3782
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4330
+      rect:
+        serializedVersion: 2
+        x: 4727
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4331
+      rect:
+        serializedVersion: 2
+        x: 4412
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4332
+      rect:
+        serializedVersion: 2
+        x: 4097
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4333
+      rect:
+        serializedVersion: 2
+        x: 3782
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4334
+      rect:
+        serializedVersion: 2
+        x: 3467
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4335
+      rect:
+        serializedVersion: 2
+        x: 3467
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4336
+      rect:
+        serializedVersion: 2
+        x: 3467
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4337
+      rect:
+        serializedVersion: 2
+        x: 3467
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4338
+      rect:
+        serializedVersion: 2
+        x: 4727
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4339
+      rect:
+        serializedVersion: 2
+        x: 4412
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4340
+      rect:
+        serializedVersion: 2
+        x: 4097
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4341
+      rect:
+        serializedVersion: 2
+        x: 3782
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4342
+      rect:
+        serializedVersion: 2
+        x: 3467
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4343
+      rect:
+        serializedVersion: 2
+        x: 3152
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4344
+      rect:
+        serializedVersion: 2
+        x: 3152
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4345
+      rect:
+        serializedVersion: 2
+        x: 3152
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4346
+      rect:
+        serializedVersion: 2
+        x: 3152
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4347
+      rect:
+        serializedVersion: 2
+        x: 3152
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4348
+      rect:
+        serializedVersion: 2
+        x: 4727
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4349
+      rect:
+        serializedVersion: 2
+        x: 4412
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4350
+      rect:
+        serializedVersion: 2
+        x: 4097
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4351
+      rect:
+        serializedVersion: 2
+        x: 3782
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4352
+      rect:
+        serializedVersion: 2
+        x: 3467
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4353
+      rect:
+        serializedVersion: 2
+        x: 3152
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4354
+      rect:
+        serializedVersion: 2
+        x: 2837
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4355
+      rect:
+        serializedVersion: 2
+        x: 2837
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4356
+      rect:
+        serializedVersion: 2
+        x: 2837
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4357
+      rect:
+        serializedVersion: 2
+        x: 2837
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4358
+      rect:
+        serializedVersion: 2
+        x: 2837
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4359
+      rect:
+        serializedVersion: 2
+        x: 2837
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4360
+      rect:
+        serializedVersion: 2
+        x: 2522
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4361
+      rect:
+        serializedVersion: 2
+        x: 2522
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4362
+      rect:
+        serializedVersion: 2
+        x: 2522
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4363
+      rect:
+        serializedVersion: 2
+        x: 2522
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4364
+      rect:
+        serializedVersion: 2
+        x: 2522
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4365
+      rect:
+        serializedVersion: 2
+        x: 2522
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4366
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4367
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4368
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4369
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4370
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4371
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4372
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4373
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4374
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4375
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4376
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4377
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4378
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4379
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4380
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4381
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4382
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4383
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4384
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4385
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4386
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4387
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4388
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4389
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4390
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4391
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4392
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4393
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4394
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4395
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4396
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4397
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4398
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4399
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4400
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4401
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4402
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4403
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4404
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4405
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4406
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4407
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4408
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 4
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4409
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 326
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4410
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 648
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4411
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 970
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4412
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1292
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: EnnemiFaible_Att.mp4413
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1614
+        width: 313
+        height: 320
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 
