@@ -13,7 +13,6 @@ public class CameraControls : MonoBehaviour
     public Vector2 minXAndY;		// The minimum x and y coordinates the camera can have.
     public bool tracking = true;
 
-
     private Transform player;		// Reference to the player's transform.
 
 
@@ -22,7 +21,6 @@ public class CameraControls : MonoBehaviour
         // Setting up the reference.
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
 
     void Start()
     {
@@ -49,6 +47,14 @@ public class CameraControls : MonoBehaviour
 		}
     }
 
+	void Update(){
+		GameObject[] minions = GameObject.FindGameObjectsWithTag("minion");
+		Debug.Log(minions.Length);
+		
+		if(minions.Length == 0 && !tracking){
+			tracking = true;
+		}
+	}
 
     void TrackPlayer()
     {

@@ -231,7 +231,7 @@ public class Minion : MonoBehaviour {
 
 		player.SendMessage("ApplyDamage", new DamageCounter(null, attackDamage));	
 		 
-			Debug.Log ("Attack completed! ");
+		Debug.Log ("Attack completed! ");
 		}
 
 	#endregion
