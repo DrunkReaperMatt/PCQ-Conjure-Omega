@@ -11,7 +11,6 @@ public class DamageCounter{
     {
         this.dealer = dealer;
         this.damage = damage;
-		Debug.Log ("dc created + " + damage);
     }
 
     public GameObject Dealer
