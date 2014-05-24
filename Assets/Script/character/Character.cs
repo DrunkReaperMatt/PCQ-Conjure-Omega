@@ -153,7 +153,6 @@ public class Character : MonoBehaviour
 
     public void AttackFast()
     {
-        Debug.Log(transform.position.x + "  <->  " + transform.position.y);
         
         StartCoroutine("ActionAttack");
     
@@ -161,7 +160,6 @@ public class Character : MonoBehaviour
 
     public void AttackStrong()
     {
-        Debug.Log(transform.position.x + "  <->  " + transform.position.y);
         
         StartCoroutine("ActionAttackStrong");
     }
@@ -280,7 +278,6 @@ public class Character : MonoBehaviour
     {
         if (canBeHit)
         {
-			anim.Play("Hit");
 
             float timer = 0f;
 
