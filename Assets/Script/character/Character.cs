@@ -21,13 +21,15 @@ public class Character : MonoBehaviour
         Invulnerable
     }
 
+
+	public AudioClip attackSound;
+	public AudioClip bleedingSound;
+
     private CharacterState state;
 
     //private Movement movement;
     private VitalStats vitals;
     private Animator anim;
-
-    
 
     private int hashMeState = Animator.StringToHash("MeAnimation");
 
@@ -50,8 +52,6 @@ public class Character : MonoBehaviour
     public float rageMultiplier = 1.50f;
     #endregion
 
-    public GameObject bloody;
-
     void Start()
     {
 
@@ -63,6 +63,7 @@ public class Character : MonoBehaviour
         anim = GetComponent<Animator>();
 
         State = CharacterState.Spawn;
+
 
 
     }
@@ -172,6 +173,7 @@ public class Character : MonoBehaviour
     public void IsHit()
     {
         anim.Play("Hit");
+		AudioSource.PlayClipAtPoint (bleedingSound, transform.position);
         StartCoroutine("ActionIsHit");
     }
 
@@ -181,9 +183,7 @@ public class Character : MonoBehaviour
         canMove = false;
         canBeHit = false;
 
-
-        StartCoroutine("ActionDeath");
-
+        anim.enabled = false;
     }
 
     public void Spawn()
@@ -227,7 +227,7 @@ public class Character : MonoBehaviour
         if (canAttack)
         {
 			anim.Play("Weak");
-
+			AudioSource.PlayClipAtPoint (attackSound, transform.position);
             float timer = 0f;
             bool attacked = false;
 
@@ -257,7 +257,7 @@ public class Character : MonoBehaviour
         if (canAttack)
         {
 			anim.Play("Strong");
-
+			AudioSource.PlayClipAtPoint (attackSound, transform.position);
             float timer = 0f;
             bool attacked = false;
 
@@ -298,22 +298,9 @@ public class Character : MonoBehaviour
 
             canAttack = canMove = canBeHit = true;
 
+            
         }
 		State = CharacterState.Idle;
-    }
-
-    private IEnumerator ActionDeath()
-    {
-        
-            anim.Play(null);
-            gameObject.renderer.enabled = false;
-
-            GameObject george = (GameObject) GameObject.Instantiate(bloody,transform.position,transform.rotation);
-            
-            yield return new WaitForSeconds(2.5f);
-
-            GameObject.Destroy(george);
-            GameObject.Destroy(gameObject);
     }
 
     public void DealDamage(float range, int damage )
@@ -324,12 +311,14 @@ public class Character : MonoBehaviour
                 new Vector2(transform.position.x + range, transform.position.y - 1)
         );
 
+        Debug.Log(hitColliders.Length);
+
         foreach (Collider2D collider in hitColliders)
         {
 
-			if (collider.tag == "minion" || collider.tag ==  "boss")
-			{
-				collider.SendMessage("ApplyDamage", new DamageCounter(gameObject, damage));
+            if (collider.tag == Tag.minion)
+            {
+                collider.SendMessage("ApplyDamage", new DamageCounter(gameObject, damage));
             }
         }
     }
