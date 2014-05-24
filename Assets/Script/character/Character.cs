@@ -70,9 +70,16 @@ public class Character : MonoBehaviour
         set {
             if (value != this.state)
             {
-                state = value;
-                Debug.Log(state);
-                UpdateCharacter();
+                if(state != CharacterState.Death)
+                {
+                    state = value;
+                    UpdateCharacter();
+                }
+                else
+                {
+                    if (value == CharacterState.Spawn) state = CharacterState.Spawn;
+                }
+                
             } 
         }
     }
@@ -218,7 +225,7 @@ public class Character : MonoBehaviour
             while (timer < ANIM_ATTACK)
             {
                 timer += Time.deltaTime;
-                if (timer == 0.5f) { /*DealDamage(,);*/ };
+                if (timer == 0.5f) { DealDamage(1f, damageAttack); };
                 yield return new WaitForEndOfFrame();
             }
 
@@ -238,7 +245,7 @@ public class Character : MonoBehaviour
             while (timer < ANIM_STRONG)
             {
                 timer += Time.deltaTime;
-                //if (timer == 0.5f) { /*DealDamage(1,1);*/ }
+                if (timer == 0.5f) { DealDamage(1.2f,damageAttackStrong); }
                 yield return new WaitForEndOfFrame();
             }
 
@@ -271,6 +278,7 @@ public class Character : MonoBehaviour
     {
         Collider[] hitColliders = Physics.OverlapSphere(new Vector2(transform.position.x + (-transform.localScale.x * range), transform.position.y), 1.5f);
         int i = 0;
+        Debug.Log(hitColliders.Length);
         while (i < hitColliders.Length)
         {
             hitColliders[i].SendMessage("ApplyDamage", new DamageCounter(transform.root.gameObject,damage));

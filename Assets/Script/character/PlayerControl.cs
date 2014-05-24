@@ -83,6 +83,8 @@ public class PlayerControl : MonoBehaviour {
         {
             bool isWalking = false;
 
+            //Debug.Log((character.CanMove ? "Yup can move" : "Can not !") + " <-> " + character.GetComponent<VitalStats>().Vitality);
+
             if (character.CanMove)
             {
                 if (Input.GetKey(keyUp)) { movement.Move(MovementType.Up); isWalking = true; }
