@@ -239,7 +239,7 @@ public class Character : MonoBehaviour
             while (timer < ANIM_ATTACK)
             {
 				timer += Time.deltaTime;
-                if (timer > 0.4f && !attacked)
+                if (timer > 0.1f && !attacked)
                 {
                     DealDamage(2.2f, damageAttack);
                     attacked = true;
@@ -272,7 +272,7 @@ public class Character : MonoBehaviour
             while (timer < ANIM_STRONG)
             {
                 timer += Time.deltaTime;
-                if (timer > 0.7f && !attacked) {
+                if (timer > 0.4f && !attacked) {
                     DealDamage(2.8f, damageAttackStrong);
                     attacked = true;
                 }
