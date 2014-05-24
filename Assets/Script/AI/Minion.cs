@@ -115,18 +115,22 @@ public class Minion : MonoBehaviour {
 		//rotate toward player
 		//currTransform.rotation = Quaternion.Slerp(currTransform.rotation, Quaternion.LookRotation(playerTargetTransform.position - currTransform.position), rotationSpeed * Time.deltaTime 
 
-		//dont rotate clockwise/anticw
-		currTransform.rotation = new Quaternion (0, 0, 0, 0); 
+		
+        if (playerTargetTransform != null)
+        {
+            //dont rotate clockwise/anticw
+            currTransform.rotation = new Quaternion(0, 0, 0, 0);
 
-			//move toward player
-		Vector3 direction = new Vector3 ( Mathf.Round(currTransform.position.x) > Mathf.Round(playerTargetTransform.position.x) ? -1:1, 
-		                                  Mathf.Round(currTransform.position.y) > Mathf.Round(playerTargetTransform.position.y) ? -1:1, 
-		                                  0 );
+            //move toward player
+            Vector3 direction = new Vector3(Mathf.Round(currTransform.position.x) > Mathf.Round(playerTargetTransform.position.x) ? -1 : 1,
+                                              Mathf.Round(currTransform.position.y) > Mathf.Round(playerTargetTransform.position.y) ? -1 : 1,
+                                              0);
 
-			///jiterry
-			///currTransform.position += direction * movementSpeed * Time.deltaTime;
+            ///jiterry
+            ///currTransform.position += direction * movementSpeed * Time.deltaTime;
 
-			this.rigidbody2D.velocity = direction * movementSpeed * Time.deltaTime;
+            this.rigidbody2D.velocity = direction * movementSpeed * Time.deltaTime;
+        }
 	}
 
 

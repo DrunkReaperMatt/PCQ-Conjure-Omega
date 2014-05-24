@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour {
 		while (true)
 		{
 			minionsToSpawn = minionSpawnCount; //
-			minions = GameObject.FindGameObjectsWithTag("minion");
+			minions = GameObject.FindGameObjectsWithTag("Minion");
 			if (minions!= null)
 			{
 				if (minionMaxCount - minions.Length < minionSpawnCount){

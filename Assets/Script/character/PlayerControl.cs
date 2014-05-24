@@ -43,7 +43,11 @@ public class PlayerControl : MonoBehaviour {
     }
     
 	void Update () {
-        Movement();
+        ///Movement();   //Update() n'est pas a intervalle fixe. Animation non fluide.
+	}
+
+	void FixedUpdate(){
+		Movement ();
 	}
 
     void Movement()
@@ -56,7 +60,7 @@ public class PlayerControl : MonoBehaviour {
             float y = Input.GetAxis("Vertical");
 
 			Boolean attackRapide = Input.GetKey (keyAttack);// Input.GetButton("Fire1");
-			Boolean attackForte = Input.GetKey (keyAttackStrong);
+			Boolean attackForte  = Input.GetKey (keyAttackStrong);
 			//Boolean activateRage = Input.GetButton("Fire3");
 
             if (x < 0.2 && x > -0.2) x = 0;
@@ -75,7 +79,7 @@ public class PlayerControl : MonoBehaviour {
             if (character.CanAttack)
             {
                 if (attackRapide == true) { character.State = Character.CharacterState.AttackFast; }
-                if (attackForte == true) { character.State = Character.CharacterState.AttackStrong; }
+                if (attackForte == true)  { character.State = Character.CharacterState.AttackStrong; }
                 //if (activateRage == true) { character.RageModeActivation; }
             }
         }
