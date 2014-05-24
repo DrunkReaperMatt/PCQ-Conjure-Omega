@@ -267,6 +267,70 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &339115529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 339115530}
+  - 114: {fileID: 339115532}
+  - 114: {fileID: 339115531}
+  m_Layer: 0
+  m_Name: VieEnemyArriere
+  m_TagString: Background
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &339115530
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339115529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 1.75, z: 0}
+  m_LocalScale: {x: .00999999978, y: .00999999978, z: .00324700028}
+  m_Children: []
+  m_Father: {fileID: 1769602122}
+--- !u!114 &339115531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339115529}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9fbe75e33e75d4297ad13bf118f6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  go: {fileID: 0}
+--- !u!114 &339115532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339115529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mPivot: 6
+  mWidth: 200
+  mHeight: 30
+  mDepth: 0
+  mAtlas: {fileID: 11400000, guid: 8bfb0607b67c7bc43ae7f6c9c71db022, type: 2}
+  mSpriteName: green
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1 &421315358
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +434,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 615230207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.00000012, y: .5, z: 0}
+  m_LocalPosition: {x: -.5, y: .5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1131487254}
@@ -510,7 +574,7 @@ MonoBehaviour:
     e00: 308
     e01: 0
     e02: 0
-    e03: 1.00000012
+    e03: .5
     e10: 0
     e11: 308
     e12: 0
@@ -855,7 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9fbe75e33e75d4297ad13bf118f6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1769602124}
+  player: {fileID: 1769602126}
   go: {fileID: 0}
 --- !u!114 &1589633058
 MonoBehaviour:
@@ -902,6 +966,8 @@ GameObject:
   - 212: {fileID: 1769602125}
   - 114: {fileID: 1769602124}
   - 114: {fileID: 1769602123}
+  - 114: {fileID: 1769602126}
+  - 50: {fileID: 1769602127}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -920,6 +986,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1589633059}
+  - {fileID: 339115530}
   m_Father: {fileID: 0}
 --- !u!114 &1769602123
 MonoBehaviour:
@@ -969,8 +1036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d847bf5d3ad9f4eb10e91ebd044d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
-  startingArmor: 0
   rotationSpeed: 3
   attackDamage: 10
   movementSpeed: 30
@@ -998,6 +1063,36 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 78061124eecc64820ba6dc6ccc95a35e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1769602126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1769602121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae609f4f0cf83f84097ca2da051660a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rageMax: 100
+  rageModeTreshold: 50
+  vitalityMax: 100
+  armorMax: 5
+--- !u!50 &1769602127
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1769602121}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &1819917282
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using System;
 public class HealtBarEnemy : MonoBehaviour {
 	
 	
-	public Minion player;
+	public VitalStats player;
 	public GameObject go;
 	
 	private float scaleY;
@@ -18,7 +18,7 @@ public class HealtBarEnemy : MonoBehaviour {
 	void Start () {
 		
 		go = GameObject.FindGameObjectWithTag ("Player");
-		player = go.GetComponent<Minion> ();
+		player = go.GetComponent<VitalStats> ();
 		
 		
 		positionX = -1f;
@@ -36,10 +36,11 @@ public class HealtBarEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		
+
+
+
 		//ajuste la longeur de la bar selon la quantité de vie qu'il reste
-		scaleX = ((float)player.GetComponent<VitalStats>().Vitality / (float)player.GetComponent<VitalStats>().vitalityMax);
+		scaleX = ((float)player.GetComponent<VitalStats>().Vitality / (float)player.GetComponent<VitalStats>().vitalityMax)/100;
 		
 		transform.localScale = new Vector3 (scaleX, scaleY, 0);
 
