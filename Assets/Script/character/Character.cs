@@ -27,6 +27,8 @@ public class Character : MonoBehaviour
     private VitalStats vitals;
     private Animator anim;
 
+    
+
     private int hashMeState = Animator.StringToHash("MeAnimation");
 
     private bool canAttack;
@@ -48,6 +50,8 @@ public class Character : MonoBehaviour
     public float rageMultiplier = 1.50f;
     #endregion
 
+    public GameObject bloody;
+
     void Start()
     {
 
@@ -59,6 +63,7 @@ public class Character : MonoBehaviour
         anim = GetComponent<Animator>();
 
         State = CharacterState.Spawn;
+
 
     }
 
@@ -176,7 +181,9 @@ public class Character : MonoBehaviour
         canMove = false;
         canBeHit = false;
 
-        anim.enabled = false;
+
+        StartCoroutine("ActionDeath");
+
     }
 
     public void Spawn()
@@ -291,9 +298,22 @@ public class Character : MonoBehaviour
 
             canAttack = canMove = canBeHit = true;
 
-            
         }
 		State = CharacterState.Idle;
+    }
+
+    private IEnumerator ActionDeath()
+    {
+        
+            anim.Play(null);
+            gameObject.renderer.enabled = false;
+
+            GameObject george = (GameObject) GameObject.Instantiate(bloody);
+            george.transform.position = transform.position;
+            
+            yield return new WaitForSeconds(1.4f);
+
+            GameObject.Destroy(george);
     }
 
     public void DealDamage(float range, int damage )
