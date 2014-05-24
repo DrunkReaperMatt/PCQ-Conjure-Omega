@@ -5,13 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scene/Menus/menu_principal.unity
   - enabled: 0
     path: Assets/Scene/scene.unity
   - enabled: 1
+    path: Assets/Scene/Menus/menu_principal.unity
+  - enabled: 1
     path: Assets/Scene/Main/Main.unity
+  - enabled: 1
+    path: Assets/Scene/Cinematic_1.unity
   - enabled: 1
     path: Assets/Scene/Menus/Credits.unity
   - enabled: 1
-    path: Assets/Scene/Cinematic_1.unity
+    path: Assets/Scene/Menus/EndGameCredits.unity

@@ -384,17 +384,17 @@ MonoBehaviour:
   widgetsAreStatic: 0
   cullWhileDragging: 0
   worldToLocal:
-    e00: 448.5
+    e00: 239.999985
     e01: 0
     e02: 0
     e03: 0
     e10: 0
-    e11: 448.5
+    e11: 239.999985
     e12: 0
     e13: 0
     e20: 0
     e21: 0
-    e22: 448.5
+    e22: 239.999985
     e23: 0
     e30: 0
     e31: 0
@@ -428,7 +428,7 @@ Transform:
   m_GameObject: {fileID: 757743720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00222965446, y: .00222965446, z: .00222965446}
+  m_LocalScale: {x: .00416666688, y: .00416666688, z: .00416666688}
   m_Children:
   - {fileID: 803437040}
   m_Father: {fileID: 0}
