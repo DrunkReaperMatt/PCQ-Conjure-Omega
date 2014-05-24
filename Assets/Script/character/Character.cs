@@ -21,13 +21,17 @@ public class Character : MonoBehaviour
         Invulnerable
     }
 
+
+	public AudioClip attackSound;
+	public AudioClip bleedingSound;
+	public AudioClip hittingSound;
+
+
     private CharacterState state;
 
     //private Movement movement;
     private VitalStats vitals;
     private Animator anim;
-
-    
 
     private int hashMeState = Animator.StringToHash("MeAnimation");
 
@@ -50,8 +54,6 @@ public class Character : MonoBehaviour
     public float rageMultiplier = 1.50f;
     #endregion
 
-    public GameObject bloody;
-
     void Start()
     {
 
@@ -63,6 +65,7 @@ public class Character : MonoBehaviour
         anim = GetComponent<Animator>();
 
         State = CharacterState.Spawn;
+
 
 
     }
@@ -172,6 +175,7 @@ public class Character : MonoBehaviour
     public void IsHit()
     {
         anim.Play("Hit");
+		AudioSource.PlayClipAtPoint (bleedingSound, transform.position);
         StartCoroutine("ActionIsHit");
     }
 
@@ -181,9 +185,7 @@ public class Character : MonoBehaviour
         canMove = false;
         canBeHit = false;
 
-
-        StartCoroutine("ActionDeath");
-
+        anim.enabled = false;
     }
 
     public void Spawn()
@@ -227,7 +229,7 @@ public class Character : MonoBehaviour
         if (canAttack)
         {
 			anim.Play("Weak");
-
+			AudioSource.PlayClipAtPoint (attackSound, transform.position);
             float timer = 0f;
             bool attacked = false;
 
@@ -254,9 +256,12 @@ public class Character : MonoBehaviour
 
     public IEnumerator ActionAttackStrong()
     {
+		//AudioSource audioSourceObject;
         if (canAttack)
         {
 			anim.Play("Strong");
+			//audioSourceObject = new AudioSource();
+			AudioSource.PlayClipAtPoint (attackSound, transform.position);
 
             float timer = 0f;
             bool attacked = false;
@@ -273,7 +278,7 @@ public class Character : MonoBehaviour
                 }
                 yield return new WaitForEndOfFrame();
             }
-
+			//GameObject.Destroy(audioSourceObject);
 			canAttack = true;
 			canMove = true;
             
@@ -298,22 +303,9 @@ public class Character : MonoBehaviour
 
             canAttack = canMove = canBeHit = true;
 
+            
         }
 		State = CharacterState.Idle;
-    }
-
-    private IEnumerator ActionDeath()
-    {
-        
-            anim.Play(null);
-            gameObject.renderer.enabled = false;
-
-            GameObject george = (GameObject) GameObject.Instantiate(bloody);
-            george.transform.position = transform.position;
-            
-            yield return new WaitForSeconds(1.4f);
-
-            GameObject.Destroy(george);
     }
 
     public void DealDamage(float range, int damage )
@@ -324,11 +316,15 @@ public class Character : MonoBehaviour
                 new Vector2(transform.position.x + range, transform.position.y - 1)
         );
 
+        Debug.Log(hitColliders.Length);
+
         foreach (Collider2D collider in hitColliders)
         {
 
             if (collider.tag == Tag.minion)
             {
+				AudioSource.PlayClipAtPoint (hittingSound, transform.position);
+
                 collider.SendMessage("ApplyDamage", new DamageCounter(gameObject, damage));
             }
         }

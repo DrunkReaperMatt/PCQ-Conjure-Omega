@@ -54,6 +54,8 @@ public class Minion : MonoBehaviour {
     public float movementSpeed = 30;
     public float minAttackDistance = 3.0f;
 
+    public GameObject bloody;
+
 	//private delegate SetDeadState;
 
 	private Movement MinionsMovement;   //memes mouvement que le player (cardinaux), pas de rage.
@@ -104,6 +106,9 @@ public class Minion : MonoBehaviour {
 			BeginAttackingAnimation();
 
 		}
+		else{
+			BeginIdlingAnimation();
+		}
 	}
 		                                        
     /*
@@ -115,33 +120,40 @@ public class Minion : MonoBehaviour {
 		//rotate toward player
 		//currTransform.rotation = Quaternion.Slerp(currTransform.rotation, Quaternion.LookRotation(playerTargetTransform.position - currTransform.position), rotationSpeed * Time.deltaTime 
 
-		//dont rotate clockwise/anticw
-		currTransform.rotation = new Quaternion (0, 0, 0, 0); 
 
-			//move toward player
-		Vector3 direction = new Vector3 ( Mathf.Round(currTransform.position.x) > Mathf.Round(playerTargetTransform.position.x) ? -1:1, 
-		                                  Mathf.Round(currTransform.position.y) > Mathf.Round(playerTargetTransform.position.y) ? -1:1, 
-		                                  0 );
+        if (playerTargetTransform != null && currentState != MinionState.Dead)
+        {
+            //dont rotate clockwise/anticw
+            currTransform.rotation = new Quaternion(0, 0, 0, 0);
 
-			///jiterry
-			///currTransform.position += direction * movementSpeed * Time.deltaTime;
+            //move toward player
+            Vector3 direction = new Vector3(Mathf.Round(currTransform.position.x) > Mathf.Round(playerTargetTransform.position.x) ? -1 : 1,
+                                              Mathf.Round(currTransform.position.y) > Mathf.Round(playerTargetTransform.position.y) ? -1 : 1,
+                                              0);
 
-			this.rigidbody2D.velocity = direction * movementSpeed * Time.deltaTime;
+            ///jiterry
+            ///currTransform.position += direction * movementSpeed * Time.deltaTime;
+
+            this.rigidbody2D.velocity = direction * movementSpeed * Time.deltaTime;
+        }
+        else
+        {
+            this.rigidbody2D.velocity = new Vector2(0f,0f);
+        }
 	}
 
-
-    
-
 	public void ApplyDamage(DamageCounter dc ) {
-        Debug.Log("Touché -> " + dc.Damage + " <=> healt : " + vitals );
- 		if ( currentState != MinionState.Dead ) {
+        
+        if ( currentState != MinionState.Dead ) {
  			vitals.ReceiveDamage(dc.Damage);
-			//Killing blow? set dying stage. 
-			if (!vitals.HasHealt()){
-                Destroy(gameObject);
-				//BeginDyingAnimation();
+			
+			if (!vitals.HasHealt())
+            {
+				StartCoroutine("BeginDyingAnimation");
+                currentState = MinionState.Dead;
 			}
-			else if (shouldRetreat()){
+			else if (shouldRetreat())
+            {
 				SetRetreatingingState();
 			}
 		}
@@ -182,8 +194,9 @@ public class Minion : MonoBehaviour {
 	// peut attacker si assez proche. (beginAttack())
 	// peut pas attacker frame suivi si déjà en animation attaque.
 	public bool CanAttack(){
-		bool bCanAttack = false;
-		 
+
+        if (currentState == MinionState.Dead) return false;
+
 		if (this.currentAnimationState == MinionAnimationState.Attacking) {
 			return false;
 		}
@@ -217,17 +230,24 @@ public class Minion : MonoBehaviour {
 	#region Idling
 	public void BeginIdlingAnimation( ){
 			// anim 
-		currentAnimationState = MinionAnimationState.Idling;
 
-		if (this.tag == "minion") 
+
+		if (this.tag == Tag.minion) 
 		{
-			anim.Play("Ghost_Idle");
+			anim.Play("Idle");
 		}
-		if (this.tag == "boss") 
+/*		if (this.tag == "boss") 
 		{
 			anim.Play("Eye_Idle");
 		}
-		StartCoroutine (EndIdlingAnimation());
+
+*/
+		if (currentAnimationState == MinionAnimationState.None) {
+					
+			currentAnimationState = MinionAnimationState.Idling;
+			StartCoroutine (EndIdlingAnimation());
+
+		}
 
 	}
 	public  IEnumerator EndIdlingAnimation( ){
@@ -242,17 +262,21 @@ public class Minion : MonoBehaviour {
 		// anim 
 		Debug.Log ("CAN ATTACK!");
 
-		currentAnimationState = MinionAnimationState.Attacking;
 
-		if (this.tag == "minion") 
+
+		if (this.tag == Tag.minion) 
 		{
-			anim.Play("Ghost_Attack");
+			anim.Play("Attack");
 		}
-		if (this.tag == "boss") 
+		/*if (this.tag == "boss") 
 		{
 			anim.Play("Eye_Attack");
 		}
-		StartCoroutine (EndAttackingAnimation());
+		 */
+		if (currentAnimationState == MinionAnimationState.None) {
+				currentAnimationState = MinionAnimationState.Attacking;
+				StartCoroutine (EndAttackingAnimation ());
+		}
 
 }
 	public  IEnumerator EndAttackingAnimation( ){
@@ -284,11 +308,24 @@ public class Minion : MonoBehaviour {
 
 	#region Dying
  
-	public void BeginDyingAnimation( ){
+	private IEnumerator BeginDyingAnimation(){
+
+        Debug.Log("dead");
+        anim.Play(null);
+        renderer.enabled = false;
+
+        GameObject george = (GameObject)GameObject.Instantiate(bloody,transform.position,transform.rotation);
+
+        yield return new WaitForSeconds(2.5f);
+
+        GameObject.Destroy(george);
+        GameObject.Destroy(gameObject);
+
 		// anim 
-		SetDyingState();
+		//SetDyingState();
 		 
 	}
+
 	#endregion
 	/// POLISH   -- flashy body, before removing from scene.
 	public void BeginDecayingBodyAnimation( ){
