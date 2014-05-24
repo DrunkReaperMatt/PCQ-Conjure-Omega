@@ -48,7 +48,7 @@ public class VitalStats : MonoBehaviour {
 
     public bool HasHealt()
     {
-        return (vitality > 1 ? true : false);
+        return (vitality > 1);
     }
 
     #endregion
