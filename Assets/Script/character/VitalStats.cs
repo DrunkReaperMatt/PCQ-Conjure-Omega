@@ -7,7 +7,9 @@ public class VitalStats : MonoBehaviour {
     public int rageMax = 100;
     public int rageModeTreshold = 50;
     public int vitalityMax = 100;
+
     public int armorMax = 5;
+    public int armorAtStart = 0;
 
     private int armor;
     private int vitality;
@@ -22,7 +24,7 @@ public class VitalStats : MonoBehaviour {
     {
         rage = 0;
         vitality = vitalityMax;
-        armor = 0;
+        armor = armorAtStart;
     }
 
     #region VITALITY

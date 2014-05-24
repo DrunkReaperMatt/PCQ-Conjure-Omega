@@ -1,0 +1,9 @@
+var fire:GameObject;
+
+function OnCollisionEnter(col:Collision){
+	if (col.gameObject.tag == "bullet"){
+		scriptObject.GetComponent(game).hitEnemy();
+	}
+	Instantiate(explosion,transform.position,Quaternion.identity);
+	Instantiate(fire,transform.position,Quaternion.identity);
+	replaceEnemy();
