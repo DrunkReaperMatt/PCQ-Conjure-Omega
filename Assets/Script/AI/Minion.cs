@@ -35,6 +35,8 @@ public enum MinionAnimationState {
 }
 
 
+[RequireComponent(typeof(VitalStats))]
+[RequireComponent(typeof(Animator))]
 
 public class Minion : MonoBehaviour {
 
@@ -82,6 +84,7 @@ public class Minion : MonoBehaviour {
 		currentAnimationState = MinionAnimationState.Idling;
 
         vitals = GetComponent<VitalStats>();
+		anim = GetComponent<Animator>();
 
 		//optenir la référence vers l'objet player > Mauvaise idée ...
 		playerTargetTransform = GameObject.FindWithTag ("Player").transform;
@@ -214,7 +217,16 @@ public class Minion : MonoBehaviour {
 	#region Idling
 	public void BeginIdlingAnimation( ){
 			// anim 
-			currentAnimationState = MinionAnimationState.Idling;
+		currentAnimationState = MinionAnimationState.Idling;
+
+		if (this.tag == "minion") 
+		{
+			anim.Play("Ghost_Idle");
+		}
+		if (this.tag == "boss") 
+		{
+			anim.Play("Eye_Idle");
+		}
 		StartCoroutine (EndIdlingAnimation());
 
 	}
@@ -232,6 +244,14 @@ public class Minion : MonoBehaviour {
 
 		currentAnimationState = MinionAnimationState.Attacking;
 
+		if (this.tag == "minion") 
+		{
+			anim.Play("Ghost_Attack");
+		}
+		if (this.tag == "boss") 
+		{
+			anim.Play("Eye_Attack");
+		}
 		StartCoroutine (EndAttackingAnimation());
 
 }
@@ -239,12 +259,15 @@ public class Minion : MonoBehaviour {
 		yield return new WaitForSeconds (ANIM_ATTACK_TIME);
 		currentAnimationState = MinionAnimationState.None;
 	
+
 		// if Attack collided (player didnt dodge)
 				
 		GameObject player = GameObject.FindWithTag ("Player");
 
 		player.SendMessage("ApplyDamage", new DamageCounter(null, attackDamage));	
 		 
+
+
 			Debug.Log ("Attack completed! ");
 		}
 
