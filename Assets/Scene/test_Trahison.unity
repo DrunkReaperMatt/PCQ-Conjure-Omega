@@ -156,9 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63a8da5857767a44ad0fd6b50d65a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSound: {fileID: 0}
-  bleedingSound: {fileID: 0}
-  hittingSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 0dee034964f24d04a8eae03858f52293, type: 3}
+  bleedingSound: {fileID: 8300000, guid: c196da5a67ff05a42b9078b5018a6cbb, type: 3}
+  hittingSound: {fileID: 8300000, guid: 58a53d18fda2dbf4b89f0e6c659e34d8, type: 3}
+  dyingSound: {fileID: 8300000, guid: dd16be28b901df94e9f582b73765103a, type: 3}
   damageAttack: 20
   damageAttackStrong: 50
   rageMultiplier: 1.5
@@ -633,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d847bf5d3ad9f4eb10e91ebd044d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DyingSound: {fileID: 0}
   rotationSpeed: 3
   attackDamage: 10
   movementSpeed: 100
@@ -1163,6 +1165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d847bf5d3ad9f4eb10e91ebd044d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DyingSound: {fileID: 0}
   rotationSpeed: 3
   attackDamage: 10
   movementSpeed: 100
