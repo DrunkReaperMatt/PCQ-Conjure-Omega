@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Borders : MonoBehaviour {
+public class Spawner : MonoBehaviour {
+	public bool spawning;
+
 
 	// Use this for initialization
 	void Start () {
-	
+		spawning = false;
 	}
 	
 	// Update is called once per frame
@@ -13,10 +15,11 @@ public class Borders : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter2D(Collision2D col){
-		if(col.gameObject.tag == "Player"){
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.tag == "Player")
+		{
 
+			
 		}
-
 	}
 }

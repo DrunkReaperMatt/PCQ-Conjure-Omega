@@ -20,11 +20,5 @@ public class controller : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(moveH * speed, moveV * speed);
 	}
 
-	void OnTriggerEnter2D(Collider2D col){
-		if (col.tag == "Trigger")
-		{
-			CameraControls track = camera.GetComponent<CameraControls>();
 
-		}
-	}
 }

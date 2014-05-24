@@ -21,30 +21,40 @@ public class GameController : MonoBehaviour {
 	public float startWait;
 	public float waveWait; /// min time before next spawn wave. (spawns are also triggered)
 
+	MinionCol go;
+	bool spawning;
 
 	// Use this for initialization
 	void Start () {
 		//StartCoroutine (SpawnWaves ());
 		camera = GameObject.FindGameObjectWithTag("MainCamera");
 		tracking = camera.GetComponent<CameraControls>();
+		go = GameObject.Find("_Minion Counter").GetComponent<MinionCol>();
+		spawning = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		go.spawn = spawning;
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if (col.tag == "Player" && tracking.tracking){
+		if (col.tag == "Player" && !spawning){
+			spawning = true;
 			StartCoroutine(SpawnWaves());
 			tracking.tracking = false;
 		}
 	}
 
+	public bool IsSpawning(){
+		return spawning;
+	}
 
 	IEnumerator SpawnWaves ()
 	{
 		GameObject[] minions;
 		int minionsToSpawn;
+		spawning = true;
 		yield return new WaitForSeconds (startWait);
 		while (true)
 		{
@@ -64,6 +74,7 @@ public class GameController : MonoBehaviour {
 				yield return new WaitForSeconds (minionSpawnWait);
 			}
 			yield return new WaitForSeconds (waveWait);
+			spawning = false;
 			Destroy(gameObject);
 		}
 	}

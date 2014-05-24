@@ -12,8 +12,12 @@ public class CameraControls : MonoBehaviour
     public Vector2 maxXAndY;		// The maximum x and y coordinates the camera can have.
     public Vector2 minXAndY;		// The minimum x and y coordinates the camera can have.
     public bool tracking = true;
+	bool spawning;
+	GameController gc;
 
+	public GameObject go;
 	public Transform arrow;
+	MinionCol cleared;
 	TweenScale scale;
 	private Transform player;		// Reference to the player's transform.
 
@@ -29,6 +33,8 @@ public class CameraControls : MonoBehaviour
 
     void Start()
     {
+		go = GameObject.Find("_Minion Counter");		
+		cleared = GameObject.Find("_Minion Counter").GetComponent<MinionCol>();
     }
 
     bool CheckXMargin()
@@ -52,11 +58,8 @@ public class CameraControls : MonoBehaviour
 		}
     }
 
-	void Update(){
-		GameObject[] minions = GameObject.FindGameObjectsWithTag("minion");
-		Debug.Log(minions.Length);
-		
-		if(minions.Length == 0 && !tracking){
+	void Update(){	
+		if( !tracking && cleared.IsClear() && !cleared.IsSpawning()){
 			tracking = true;
 			StartCoroutine(PlayTween(3));
 		}
