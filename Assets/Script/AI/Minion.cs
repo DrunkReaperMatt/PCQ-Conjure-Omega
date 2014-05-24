@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 
 public enum MinionType {
@@ -94,7 +95,7 @@ public class Minion : MonoBehaviour {
 	}
 		                                        
 
-	public int GetCurrentHealth() {
+	public int GetCurrentHealth (){
 		return currentHealth;
 	}
 
@@ -263,6 +264,6 @@ public class Minion : MonoBehaviour {
 	public  float GetDistanceFromPlayer(){
 		return Vector3.Distance (playerTargetTransform.position, this.currTransform.position);
 	}
-
+	
 
 }
